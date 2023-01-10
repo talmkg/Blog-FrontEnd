@@ -11,7 +11,7 @@ const BlogList = (props) => {
   const fetchBlogs = async () => {
     try {
       const response = await fetch(
-        "https://damiansapi-production.up.railway.app/books"
+        "https://damiansapi-production.up.railway.app/"
       );
       if (response.ok) {
         const data = await response.json();
