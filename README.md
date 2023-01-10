@@ -1,4 +1,3 @@
-# EPICODE BLOG TEMPLATE
+[front-end](https://template-talmkg.vercel.app/) 🦝
 
-- Updated to Reac18
-- Changes quill to draftjs
+[back-end](https://damiansapi-production.up.railway.app/books) 👨‍💻
