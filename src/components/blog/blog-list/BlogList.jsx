@@ -25,7 +25,7 @@ const BlogList = (props) => {
       console.log(error);
     }
   };
-  console.log(news);
+
   return (
     <Row>
       {posts.map((post) => (
