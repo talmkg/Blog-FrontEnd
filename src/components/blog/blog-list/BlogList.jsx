@@ -7,7 +7,7 @@ const BlogList = (props) => {
   const [news, setNews] = useState([]);
   useEffect(() => {
     fetchBlogs();
-  });
+  }, []);
   const fetchBlogs = async () => {
     const options = {
       method: "GET",
@@ -20,6 +20,7 @@ const BlogList = (props) => {
       if (response.ok) {
         const data = await response.json();
         setNews(data);
+        console.log(news);
       }
     } catch (error) {
       console.log(error);
@@ -36,8 +37,6 @@ const BlogList = (props) => {
           }}
         >
           <BlogItem key={post.title} {...post} />
-
-          {console.log(news)}
         </Col>
       ))}
     </Row>
