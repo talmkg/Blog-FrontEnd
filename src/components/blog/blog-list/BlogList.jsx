@@ -36,7 +36,7 @@ const BlogList = (props) => {
           }}
         >
           <BlogItem key={post.title} {...post} />
-          {news.map(<p>{news}</p>)}
+
           {console.log(news)}
         </Col>
       ))}
