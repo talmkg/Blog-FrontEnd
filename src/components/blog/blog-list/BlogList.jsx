@@ -36,6 +36,7 @@ const BlogList = (props) => {
           }}
         >
           <BlogItem key={post.title} {...post} />
+          {news.map(<p>{news[1].firstname}</p>)}
         </Col>
       ))}
     </Row>
