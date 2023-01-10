@@ -8,16 +8,12 @@ const BlogList = (props) => {
 
   useEffect(() => {
     fetchBlogs();
-  }, []);
+  }, [news]);
 
   const fetchBlogs = async () => {
-    const options = {
-      method: "GET",
-    };
     try {
       const response = await fetch(
-        "https://damiansapi-production.up.railway.app/books",
-        options
+        "https://damiansapi-production.up.railway.app/books"
       );
       if (response.ok) {
         const data = await response.json();
