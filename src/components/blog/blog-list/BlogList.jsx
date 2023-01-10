@@ -30,6 +30,7 @@ const BlogList = (props) => {
 
   //
   const [news, setNews] = useState([]);
+
   // const fetchBlogs = async () => {
   //   const response = await fetch(
   //     "https://damiansapi-production.up.railway.app/books"
@@ -55,17 +56,18 @@ const BlogList = (props) => {
     fetching();
   }, []);
 
-  console.log(news);
+  console.log(news.usersArray);
+  const blogstoprint = news.usersArray;
   return (
     <Row>
-      {posts.map((post) => (
+      {blogstoprint?.map((blog) => (
         <Col
           md={4}
           style={{
             marginBottom: 50,
           }}
         >
-          <BlogItem key={post.title} {...post} />
+          <BlogItem key={blog.title} {...blog} />
         </Col>
       ))}
     </Row>
