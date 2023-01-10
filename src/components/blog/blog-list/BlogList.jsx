@@ -5,9 +5,7 @@ import BlogItem from "../blog-item/BlogItem";
 import { useState, useEffect } from "react";
 const BlogList = (props) => {
   const [news, setNews] = useState([]);
-  useEffect(() => {
-    fetchBlogs();
-  }, []);
+  // useEffect(() => {}, []);
   const fetchBlogs = async () => {
     const options = {
       method: "GET",
@@ -26,7 +24,7 @@ const BlogList = (props) => {
       console.log(error);
     }
   };
-
+  fetchBlogs();
   return (
     <Row>
       {posts.map((post) => (
