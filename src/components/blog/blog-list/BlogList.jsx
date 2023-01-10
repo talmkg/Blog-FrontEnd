@@ -9,20 +9,23 @@ const BlogList = (props) => {
     fetchBlogs();
   });
   const fetchBlogs = async () => {
+    const options = {
+      method: "GET",
+    };
     try {
       const response = await fetch(
-        "https://damiansapi-production.up.railway.app/books"
+        "https://damiansapi-production.up.railway.app/books",
+        options
       );
       if (response.ok) {
         const data = await response.json();
         setNews(data);
-        console.log(news);
       }
     } catch (error) {
       console.log(error);
     }
   };
-
+  console.log(news);
   return (
     <Row>
       {posts.map((post) => (
