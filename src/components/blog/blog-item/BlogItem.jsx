@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import BlogAuthor from "../blog-author/BlogAuthor";
 import "./styles.css";
 const BlogItem = (props) => {
-  const { title, img, author, _id, index, price, category } = props;
+  const { title, img, asin, author, _id, index, price, category } = props;
   return (
-    <Link to={`books/${_id}`} className="blog-link">
+    <Link to={`books/${asin}`} className="blog-link">
       <Card className="blog-card">
         <Card.Img variant="top" src={img} className="blog-cover" />
         <Card.Body>
