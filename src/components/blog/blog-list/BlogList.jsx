@@ -56,13 +56,13 @@ const BlogList = (props) => {
     fetching();
   }, []);
 
-  console.log(news.usersArray);
-  const blogstoprint = news.usersArray;
+  console.log(news);
+  const blogstoprint = news.booksArray;
   return (
     <Row>
       {blogstoprint?.map((blog) => (
         <Col
-          md={4}
+          md={3}
           style={{
             marginBottom: 50,
           }}
