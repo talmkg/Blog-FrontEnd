@@ -4,17 +4,32 @@ import { Link } from "react-router-dom";
 import BlogAuthor from "../blog-author/BlogAuthor";
 import "./styles.css";
 const BlogItem = (props) => {
-  const { title, img, asin, author, _id, index, price, category } = props;
+  const {
+    title,
+    cover,
+    img,
+    asin,
+    author,
+    _id,
+    index,
+    price,
+    category,
+    readTime,
+  } = props;
+
   return (
-    <Link to={`books/${asin}`} className="blog-link">
+    <Link to={`books/${_id}`} className="blog-link">
       <Card className="blog-card">
-        <Card.Img variant="top" src={img} className="blog-cover" />
+        <Card.Img
+          variant="top"
+          src={`https://picsum.photos/id/${_id}${_id}/900/900`}
+        />
         <Card.Body>
           <Card.Title>{title}</Card.Title>
         </Card.Body>
-        <Card.Footer className="d-flex justify-content-between">
-          <p>{price}$</p>
-          <p>{category}</p>
+
+        <Card.Footer>
+          <BlogAuthor {...author} {...readTime} />
         </Card.Footer>
       </Card>
     </Link>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import posts from "../../../data/posts.json";
+
 import BlogItem from "../blog-item/BlogItem";
 import { useState, useEffect } from "react";
 const BlogList = (props) => {
@@ -29,7 +29,6 @@ const BlogList = (props) => {
   //   }, []);
 
   //
-  const [news, setNews] = useState([]);
 
   // const fetchBlogs = async () => {
   //   const response = await fetch(
@@ -41,6 +40,8 @@ const BlogList = (props) => {
   //   console.log(news);
   // };
   // fetchBlogs();
+  const [news, setNews] = useState([]);
+
   React.useEffect(() => {
     const fetching = async () => {
       let response = await fetch(
