@@ -45,7 +45,7 @@ const BlogList = (props) => {
   React.useEffect(() => {
     const fetching = async () => {
       let response = await fetch(
-        "https://damiansapi-production.up.railway.app/books"
+        "https://backendhw122-production.up.railway.app/blogs"
       );
       if (response.ok) {
         const fetchedData = await response.json();
@@ -58,17 +58,17 @@ const BlogList = (props) => {
   }, []);
 
   console.log(news);
-  const blogstoprint = news.booksArray;
+
   return (
     <Row>
-      {blogstoprint?.map((blog) => (
+      {news?.map((blog) => (
         <Col
           md={3}
           style={{
             marginBottom: 50,
           }}
         >
-          <BlogItem key={blog.title} {...blog} />
+          <BlogItem key={blog.title} {...blog} index={"12"} />
         </Col>
       ))}
     </Row>

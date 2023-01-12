@@ -10,7 +10,7 @@ const BlogItem = (props) => {
     img,
     asin,
     author,
-    _id,
+    id,
     index,
     price,
     category,
@@ -18,11 +18,11 @@ const BlogItem = (props) => {
   } = props;
 
   return (
-    <Link to={`books/${_id}`} className="blog-link">
+    <Link to={`blogs/${id}`} className="blog-link">
       <Card className="blog-card">
         <Card.Img
           variant="top"
-          src={`https://picsum.photos/id/${_id}${_id}/900/900`}
+          src={`https://picsum.photos/id/${index}/900/900`}
         />
         <Card.Body>
           <Card.Title>{title}</Card.Title>

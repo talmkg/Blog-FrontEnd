@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.css";
 import React from "react";
 import NavBar from "./components/navbar/BlogNavbar";
 import Footer from "./components/footer/Footer";
@@ -13,7 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/blog/:id" element={<Blog />} />
+        <Route path="/blogs/:id" element={<Blog />} />
         <Route path="/new" element={<NewBlogPost />} />
       </Routes>
       <Footer />
