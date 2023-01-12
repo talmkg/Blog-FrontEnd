@@ -6,6 +6,11 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./styles.css";
 const NewBlogPost = (props) => {
+  //-------------------NEW-----------------------
+  // old one
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -13,7 +18,52 @@ const NewBlogPost = (props) => {
   useEffect(() => {
     let html = convertToHTML(editorState.getCurrentContent());
     setHTML(html);
+    document
+      .querySelector("#submit_button")
+      .addEventListener("click", function (event) {
+        event.preventDefault();
+      });
+
+    console.log(html);
   }, [editorState]);
+
+  // old one (end)
+  const JokesOnYou = async () => {
+    const postInfo = {
+      title: document.querySelector("#blog-form").value,
+      category: document.querySelector("#blog-category").value,
+      content: `${html}`,
+      cover: `https://picsum.photos/id/${getRandomInt(20)}/900/900`,
+      readTime: { value: 2, unit: "minute" },
+      author: {
+        name: "Bri Cho",
+        avatar: "https://ui-avatars.com/api/?name=Bri+Cho",
+      },
+    };
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(postInfo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const endpoint = `https://backendhw122-production.up.railway.app/blogs`;
+      const response = await fetch(endpoint, options);
+      if (response.ok) {
+        console.log(response);
+        alert("Posted!");
+      } else {
+        throw new Error("Error while uploading information");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //-------------------OLD-----------------------
+
   return (
     <Container className="new-blog-container">
       <Form className="mt-5">
@@ -48,10 +98,12 @@ const NewBlogPost = (props) => {
           <Button
             type="submit"
             size="lg"
+            id="submit_button"
             variant="dark"
             style={{
               marginLeft: "1em",
             }}
+            onClick={JokesOnYou}
           >
             Submit
           </Button>
