@@ -4,18 +4,7 @@ import { Link } from "react-router-dom";
 import BlogAuthor from "../blog-author/BlogAuthor";
 import "./styles.css";
 const BlogItem = (props) => {
-  const {
-    title,
-    cover,
-    img,
-    asin,
-    author,
-    id,
-    index,
-    price,
-    category,
-    readTime,
-  } = props;
+  const { title, cover, author, id, readTime } = props;
 
   return (
     <Link to={`blogs/${id}`} className="blog-link">
