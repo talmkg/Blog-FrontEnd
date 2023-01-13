@@ -51,6 +51,9 @@
   #hide-on-mobile {
     display: none !important;
   }
+  #navbar-mobile {
+    box-shadow: 0px 1px 8px 5px rgba(116, 116, 116, 0.747) !important;
+  }
 }
 @media (min-width: 500px) {
   #navbar-mobile {
