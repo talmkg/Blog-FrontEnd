@@ -9,7 +9,7 @@ const Footer = (props) => {
         paddingBottom: 50,
       }}
     >
-      <Container>{`${new Date().getFullYear()} - © Epicode | Developed for homework projects.`}</Container>
+      <Container>{`${new Date().getFullYear()} - © Tim's Projects |  @talmkg`}</Container>
     </footer>
   );
 };

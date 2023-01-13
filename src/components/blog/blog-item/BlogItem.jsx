@@ -9,9 +9,13 @@ const BlogItem = (props) => {
   return (
     <Link to={`blogs/${id}`} className="blog-link">
       <Card className="blog-card">
-        <Card.Img variant="top" src={cover} />
+        <Card.Img
+          variant="top"
+          src={cover}
+          style={{ aspectRatio: 4 / 3, objectFit: "cover" }}
+        />
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
+          <Card.Title className="text-truncate">{title}</Card.Title>
         </Card.Body>
 
         <Card.Footer>

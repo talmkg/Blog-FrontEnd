@@ -33,11 +33,12 @@ const NewBlogPost = (props) => {
       title: document.querySelector("#blog-form").value,
       category: document.querySelector("#blog-category").value,
       content: `${html}`,
-      cover: `https://picsum.photos/id/${getRandomInt(20)}/900/900`,
+      cover: `https://picsum.photos/id/${getRandomInt(80)}/1280/720`,
       readTime: { value: 2, unit: "minute" },
       author: {
-        name: "Bri Cho",
-        avatar: "https://ui-avatars.com/api/?name=Bri+Cho",
+        name: "Tim A.",
+        avatar:
+          "https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg",
       },
     };
 

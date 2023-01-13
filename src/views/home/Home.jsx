@@ -6,7 +6,7 @@ import { useState } from "react";
 const Home = (props) => {
   return (
     <Container fluid="sm">
-      <h1 className="blog-main-title">Welcome to the Epicode's Bookstore!</h1>
+      <h1 className="blog-main-title"></h1>
       <BlogList />
     </Container>
   );

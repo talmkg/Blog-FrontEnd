@@ -2,12 +2,16 @@ import React from "react";
 import { Button, Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { GiSecretBook } from "react-icons/gi";
 const NavBar = (props) => {
   return (
-    <Navbar expand="lg" className="blog-navbar" fixed="top">
+    <Navbar expand="lg" className="blog-navba bg-dark" fixed="top">
       <Container className="justify-content-between">
-        <Navbar.Brand as={Link} to="/">
-          <img className="blog-navbar-brand" alt="logo" src="logo.svg" />
+        <Navbar.Brand as={Link} to="/" className="d-flex  text-light">
+          <h2 className="m-0 p-0 me-2">ComfyBlog</h2>
+          <h2 className="m-0 p-0 me-2">
+            <GiSecretBook size={30} />
+          </h2>
         </Navbar.Brand>
 
         <Button
