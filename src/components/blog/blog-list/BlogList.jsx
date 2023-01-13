@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import BlogItem from "../blog-item/BlogItem";
 import { useState, useEffect } from "react";
 const BlogList = (props) => {
-  const [news, setNews] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   React.useEffect(() => {
     const fetching = async () => {
@@ -13,7 +13,7 @@ const BlogList = (props) => {
       );
       if (response.ok) {
         const fetchedData = await response.json();
-        setNews(fetchedData);
+        setBlogs(fetchedData);
       } else {
         console.log("error");
       }
@@ -21,17 +21,12 @@ const BlogList = (props) => {
     fetching();
   }, []);
 
-  console.log(news);
+  console.log(blogs);
 
   return (
     <Row>
-      {news?.map((blog) => (
-        <Col
-          md={3}
-          style={{
-            marginBottom: 50,
-          }}
-        >
+      {blogs?.map((blog) => (
+        <Col xs={12} s={6} md={6} lg={4} className="mb-2">
           <BlogItem key={blog.title} {...blog} />
         </Col>
       ))}

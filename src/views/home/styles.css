@@ -4,3 +4,15 @@
   margin-top: 150px;
   margin-bottom: 50px;
 }
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #ededed,
+    #dbdbdb,
+    #cacaca,
+    #b9b9b9
+  );
+  background-position: none !important;
+}

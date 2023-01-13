@@ -2,12 +2,11 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import BlogList from "../../components/blog/blog-list/BlogList";
 import "./styles.css";
-import { useState } from "react";
-const Home = (props) => {
+
+const Home = (blogs) => {
   return (
-    <Container fluid="sm">
-      <h1 className="blog-main-title"></h1>
-      <BlogList />
+    <Container fluid="sm" className="pt-4 mt-4">
+      <BlogList {...blogs} />
     </Container>
   );
 };

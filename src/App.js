@@ -6,16 +6,41 @@ import Home from "./views/home/Home";
 import Blog from "./views/blog/Blog";
 import NewBlogPost from "./views/new/New";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbarmobile from "./components/navbar/NavbarMobile";
+import Search from "./views/search/Search";
+import { useState } from "react";
+import Profile from "./views/profile/Profile";
 
 function App() {
+  const [blogs, setBlogs] = useState([]);
+
+  React.useEffect(() => {
+    const fetching = async () => {
+      let response = await fetch(
+        "https://backendhw122-production.up.railway.app/blogs"
+      );
+      if (response.ok) {
+        const fetchedData = await response.json();
+        setBlogs(fetchedData);
+      } else {
+        console.log("error");
+      }
+    };
+    fetching();
+  }, []);
+
+  console.log(blogs);
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Home {...blogs} />} />
         <Route path="/blogs/:id" element={<Blog />} />
         <Route path="/new" element={<NewBlogPost />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Navbarmobile />
       <Footer />
     </Router>
   );

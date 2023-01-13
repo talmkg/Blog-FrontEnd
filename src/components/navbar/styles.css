@@ -18,3 +18,42 @@
   width: 160px;
   text-decoration: none;
 }
+#nav-link {
+  transition: all 0.3s;
+  padding: 0.2rem;
+}
+#nav-link:hover {
+  border-radius: 50%;
+
+  transition: all 0.3s;
+  box-shadow: 0px 0px 8px rgb(179, 179, 179);
+}
+@media (max-width: 500px) {
+  #navbar {
+    display: flex;
+    justify-content: center !important;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    z-index: 1;
+    background-color: white;
+    padding: 0.5rem;
+  }
+  #navbar-logo {
+    font-size: 20px !important;
+  }
+  #navbar-post {
+    display: none !important;
+  }
+  #navbar-post-mobile {
+    display: block;
+    font-weight: 100 !important;
+  }
+  #hide-on-mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 500px) {
+  #navbar-mobile {
+    display: none !important;
+  }
+}

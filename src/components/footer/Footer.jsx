@@ -6,10 +6,13 @@ const Footer = (props) => {
     <footer
       style={{
         paddingTop: 50,
-        paddingBottom: 50,
+        paddingBottom: 70,
       }}
     >
-      <Container>{`${new Date().getFullYear()} - © Tim's Projects |  @talmkg`}</Container>
+      <Container
+        style={{ position: "relative", bottom: 0 }}
+        className="w-100 text-center"
+      >{`${new Date().getFullYear()} - © Tim's Projects |  @talmkg`}</Container>
     </footer>
   );
 };

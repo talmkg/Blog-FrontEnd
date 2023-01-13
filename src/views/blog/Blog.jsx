@@ -31,8 +31,9 @@ const Blog = (props) => {
 
     fetching();
   }, []);
+  //----------------------
   if (loading) {
-    return <div>loading</div>;
+    return <h1>loading</h1>;
   } else {
     return (
       <div className="blog-details-root">
@@ -45,7 +46,9 @@ const Blog = (props) => {
             </div>
             <div className="blog-details-info">
               <div>{blog.createdAt}</div>
-              <div>{`${blog.readTime.value} ${blog.readTime.unit} read`}</div>
+              <div className="d-flex">
+                <div>{`${blog.readTime.value} ${blog.readTime.unit} read`}</div>
+              </div>
               <div
                 style={{
                   marginTop: 20,

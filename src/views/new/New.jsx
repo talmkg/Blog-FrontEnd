@@ -63,8 +63,6 @@ const NewBlogPost = (props) => {
     }
   };
 
-  //-------------------OLD-----------------------
-
   return (
     <Container className="new-blog-container">
       <Form className="mt-5">
@@ -82,7 +80,11 @@ const NewBlogPost = (props) => {
             <option>Category5</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="blog-content" className="mt-3">
+        <Form.Group
+          controlId="blog-content"
+          style={{ backgroundColor: "white" }}
+          className="mt-3 p-2 rounded"
+        >
           <Form.Label>Blog Content</Form.Label>
           <Editor
             editorState={editorState}

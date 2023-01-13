@@ -6,14 +6,11 @@ const BlogAuthor = (props) => {
   const { name, avatar, value, unit } = props;
   return (
     <Row>
-      <Col xs={2}>
-        <Image className="blog-author" src={avatar} roundedCircle />
-      </Col>
-      <Col>
-        <p className="p-0 m-0">
-          Read-time: {value} {unit}
+      <Col xs={12} className="d-flex align-items-center justify-content-start">
+        <Image className="blog-author me-1" src={avatar} roundedCircle />
+        <p id="no-p-no-m" className="text-truncate">
+          by {name}
         </p>
-        <p className="p-0 m-0">by {name}</p>
       </Col>
     </Row>
   );

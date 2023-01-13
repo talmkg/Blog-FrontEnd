@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BlogAuthor from "../blog-author/BlogAuthor";
 import "./styles.css";
@@ -19,7 +19,16 @@ const BlogItem = (props) => {
         </Card.Body>
 
         <Card.Footer>
-          <BlogAuthor {...author} {...readTime} />
+          <Row className="d-flex align-items-center justify-content-between">
+            <Col xs={5}>
+              <BlogAuthor {...author} {...readTime} />
+            </Col>
+            <Col xs={6}>
+              <p id="no-p-no-m" className="text-truncate">
+                Read-time: {readTime.value} {readTime.unit}('s)
+              </p>
+            </Col>
+          </Row>
         </Card.Footer>
       </Card>
     </Link>
