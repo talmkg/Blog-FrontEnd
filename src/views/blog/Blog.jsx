@@ -31,7 +31,11 @@ const Blog = (props) => {
   }, []);
   //----------------------
   if (loading) {
-    return <h1>loading</h1>;
+    return (
+      <div className="d-flex justify-content-center">
+        <h1>Loading...</h1>
+      </div>
+    );
   } else {
     return (
       <div className="blog-details-root">
