@@ -26,7 +26,10 @@ const NewBlogPost = (props) => {
 
     console.log(html);
   }, [editorState]);
+  const AUTHOR_NAME = "Koho";
+  const AUTHOR_SURNAME = "L.";
 
+  const SPACE = " ";
   // old one (end)
   const JokesOnYou = async () => {
     const postInfo = {
@@ -36,9 +39,8 @@ const NewBlogPost = (props) => {
       cover: `https://picsum.photos/id/${getRandomInt(80)}/1280/720`,
       readTime: { value: 2, unit: "minute" },
       author: {
-        name: "Tim A.",
-        avatar:
-          "https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg",
+        name: AUTHOR_NAME,
+        avatar: `https://ui-avatars.com/api/?${AUTHOR_NAME}+${AUTHOR_SURNAME}`,
       },
     };
 

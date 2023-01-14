@@ -7,6 +7,13 @@
 #profile-buttons {
   width: 70px;
 }
+.no-underline {
+  text-decoration: none !important;
+  color: black !important;
+}
+.active {
+  border-bottom: 3px solid black;
+}
 @media (max-width: 1100px) {
   #profile-picture {
     width: 150px;
@@ -20,7 +27,6 @@
     margin-top: 1.3rem;
   }
 }
-
 @media (min-width: 1100px) {
   #profile-picture {
     width: 250px;
