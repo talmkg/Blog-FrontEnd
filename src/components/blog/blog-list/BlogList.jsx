@@ -1,25 +1,34 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-
 import BlogItem from "../blog-item/BlogItem";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getBlogs } from "../../../redux/actions";
+
+
 const BlogList = (props) => {
-  const [blogs, setBlogs] = useState([]);
+  // const [blogs, setBlogs] = useState([]);
+
+  // React.useEffect(() => {
+  //   const fetching = async () => {
+  //     let response = await fetch("https://main.up.railway.app/blogs");
+  //     if (response.ok) {
+  //       const fetchedData = await response.json();
+  //       setBlogs(fetchedData);
+  //     } else {
+  //       console.log("error");
+  //     }
+  //   };
+  //   fetching();
+  // }, []);
+
+  const dispatch = useDispatch();
+  const blogs = useSelector(state => state.blogs.blogs);
 
   React.useEffect(() => {
-    const fetching = async () => {
-      let response = await fetch("https://main.up.railway.app/blogs");
-      if (response.ok) {
-        const fetchedData = await response.json();
-        setBlogs(fetchedData);
-      } else {
-        console.log("error");
-      }
-    };
-    fetching();
-  }, []);
-
-  console.log(blogs);
+    dispatch(getBlogs())
+  }, [])
 
   return (
     <Row>

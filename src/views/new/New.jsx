@@ -50,7 +50,7 @@ const NewBlogPost = (props) => {
       },
     };
     try {
-      const endpoint = `https://backendhw122-production.up.railway.app/blogs`;
+      const endpoint = `https://main.up.railway.app/blogs`;
       const response = await fetch(endpoint, options);
       if (response.ok) {
         console.log(response);
