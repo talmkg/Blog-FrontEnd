@@ -1,3 +1,3 @@
-[front-end](https://template-talmkg.vercel.app/) 🦝
+[front-end](https://github.com/talmkg/Blog-FrontEnd) 🦝
 
-[back-end](https://damiansapi-production.up.railway.app/books) 👨‍💻
+[back-end](https://github.com/talmkg/MainBackEnd-Express.js) 👨‍💻
