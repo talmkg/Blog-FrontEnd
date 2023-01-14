@@ -56,10 +56,10 @@ const Profile = (props) => {
       </Container>
       <Container className="d-flex justify-content-center mt-5 mb-5">
         <div className="m-2">
-          <a className="no-underline ">Created</a>
+          <a className="no-underline active">Created</a>
         </div>
         <div className="m-2">
-          <a className="no-underline active">Saved</a>
+          <a className="no-underline ">Saved</a>
         </div>
       </Container>
       <Container>
