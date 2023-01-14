@@ -6,13 +6,11 @@
 }
 body {
   min-height: 100vh;
-  background-image: linear-gradient(
-    to bottom,
-    #ffffff,
-    #ededed,
-    #dbdbdb,
-    #cacaca,
-    #b9b9b9
-  );
-  background-position: none !important;
+}
+@media (max-width: 1000px) {
+}
+@media (min-width: 1000px) {
+  #container {
+    margin-top: 1.5rem !important;
+  }
 }

@@ -12,7 +12,7 @@ const Footer = (props) => {
       <Container
         style={{ position: "relative", bottom: 0 }}
         className="w-100 text-center"
-      >{`${new Date().getFullYear()} - © Tim's Projects |  @talmkg`}</Container>
+      >{`${new Date().getFullYear()} - © Comfy Blog `}</Container>
     </footer>
   );
 };

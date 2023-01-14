@@ -15,48 +15,109 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 160px;
+  width: 130px;
   text-decoration: none;
 }
 #nav-link {
   transition: all 0.3s;
   padding: 0.2rem;
+  opacity: 0.9;
 }
 #nav-link:hover {
   border-radius: 50%;
-
+  opacity: 1;
   transition: all 0.3s;
   box-shadow: 0px 0px 8px rgb(179, 179, 179);
 }
-@media (max-width: 500px) {
+.nav-links {
+  text-decoration: none !important;
+  font-size: 20px;
+  transition: all 0.2s;
+  opacity: 0.9;
+  color: rgb(71, 71, 71);
+}
+.nav-links:hover {
+  transition: all 0.2s;
+  opacity: 1;
+  color: rgb(19, 19, 19);
+}
+.shadow:hover {
+  box-shadow: 0px 0px 8px 8px rgb(179, 179, 179);
+}
+
+/*
+
+
+MEDIA QUERRIES
+
+MOBILE SCREEN BELOW
+
+*/
+@media (max-width: 600px) {
   #navbar {
     display: flex;
     justify-content: center !important;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
+    position: fixed;
+    top: 0;
     z-index: 1;
     background-color: white;
     padding: 0.5rem;
   }
-  #navbar-logo {
-    font-size: 20px !important;
-  }
-  #navbar-post {
-    display: none !important;
-  }
+
   #navbar-post-mobile {
     display: block;
     font-weight: 100 !important;
   }
-  #hide-on-mobile {
+  .hide-on-mobile,
+  #navbar-post {
     display: none !important;
   }
   #navbar-mobile {
     box-shadow: 0px 1px 8px 5px rgba(116, 116, 116, 0.747) !important;
   }
 }
-@media (min-width: 500px) {
+/*
+
+
+ALL BIGGER THAN MOBILE
+
+
+
+*/
+@media (min-width: 600px) {
   #navbar-mobile {
+    display: none !important;
+  }
+}
+/*
+
+
+ALL BIGGER THAN MOBILE
+
+
+
+*/
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  #only-md-screens {
+    display: block !important;
+  }
+  #nav-search {
+    margin: 0.5rem;
+    display: none !important;
+  }
+  .nav-links {
+    margin: 0 0 0.5rem 0.5rem;
+  }
+  #post-button {
+    display: none;
+  }
+  .hide-on-md {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  #nav-search2 {
     display: none !important;
   }
 }
