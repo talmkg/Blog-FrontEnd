@@ -8,9 +8,7 @@ const BlogList = (props) => {
 
   React.useEffect(() => {
     const fetching = async () => {
-      let response = await fetch(
-        "https://backendhw122-production.up.railway.app/blogs"
-      );
+      let response = await fetch("https://main.up.railway.app/blogs");
       if (response.ok) {
         const fetchedData = await response.json();
         setBlogs(fetchedData);

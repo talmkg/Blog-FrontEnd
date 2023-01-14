@@ -14,9 +14,7 @@ const Blog = (props) => {
   useEffect(() => {
     const { id } = params;
     const fetching = async () => {
-      let response = await fetch(
-        `https://backendhw122-production.up.railway.app/blogs/${id}`
-      );
+      let response = await fetch(`https://main.up.railway.app/blogs/${id}`);
       if (response.ok) {
         const fetchedData = await response.json();
         console.log(fetchedData);
