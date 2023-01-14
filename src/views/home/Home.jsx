@@ -5,7 +5,7 @@ import "./styles.css";
 
 const Home = (blogs) => {
   return (
-    <Container fluid="sm" className="pt-4 mt-4">
+    <Container fluid="sm" id="container">
       <BlogList {...blogs} />
     </Container>
   );
