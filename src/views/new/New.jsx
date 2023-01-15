@@ -76,7 +76,7 @@ const NewBlogPost = (props) => {
         <Row>
           <Col>
             <Form.Group controlId="name" className="mt-3 ">
-              <Form.Label>Preferred Name</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control size="md" placeholder="Anthony Stark" />
             </Form.Group>
           </Col>
@@ -88,7 +88,7 @@ const NewBlogPost = (props) => {
           </Col>
           <Col>
             <Form.Group controlId="time" className="mt-3">
-              <Form.Label>Expected Read-Time</Form.Label>
+              <Form.Label>Read-Time</Form.Label>
               <Form.Control size="md" placeholder="2" />
             </Form.Group>
           </Col>
