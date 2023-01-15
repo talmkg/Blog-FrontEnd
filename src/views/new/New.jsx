@@ -97,12 +97,10 @@ const NewBlogPost = (props) => {
           <div id="hide-on-mobile">
             <Form.Group
               controlId="blog-content"
-              style={{ backgroundColor: "white" }}
-              className="mt-3 p-2 rounded"
+              className="mt-3 p-2 rounded bg-light text-dark"
               id="content"
             >
               <Form.Label>Blog Content</Form.Label>
-
               <Editor
                 editorState={editorState}
                 toolbarClassName="toolbarClassName"

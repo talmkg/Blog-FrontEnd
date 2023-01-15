@@ -54,7 +54,7 @@ const NavBar = (props) => {
             </Link>
             <Link
               to="/new"
-              className="nav-links text-center mx-2"
+              className="d-none nav-links text-center mx-2"
               id="only-md-screens"
             >
               New Post
