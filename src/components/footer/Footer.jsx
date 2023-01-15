@@ -11,7 +11,7 @@ const Footer = (props) => {
     >
       <Container
         style={{ position: "relative", bottom: 0 }}
-        className="w-100 text-center"
+        className="w-100 text-center  text-light"
       >{`${new Date().getFullYear()} - © Comfy Blog `}</Container>
     </footer>
   );

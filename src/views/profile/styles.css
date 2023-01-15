@@ -9,11 +9,12 @@
 }
 .no-underline {
   text-decoration: none !important;
-  color: black !important;
+  color: rgb(201, 201, 201) !important;
   cursor: pointer;
+  font-size: large;
 }
 .active {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid rgb(255, 255, 255);
 }
 @media (max-width: 1100px) {
   #profile-picture {

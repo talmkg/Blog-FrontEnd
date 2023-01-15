@@ -2,18 +2,18 @@ import { FETCH_BLOGS } from "../actions";
 
 const initialState = {
   blogs: [],
-  isLoading: true
+  isLoading: true,
 };
 
 const mainReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_BLOGS:
-      const newState = {
+      return {
         ...state,
         blogs: action.payload,
         isLoading: false,
       };
-      return newState;
+
     default:
       return state;
   }

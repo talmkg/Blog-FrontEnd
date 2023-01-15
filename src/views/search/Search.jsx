@@ -7,7 +7,12 @@ import { useEffect, useState } from "react";
 import { getBlogs } from "../../redux/actions";
 import BlogItem from "../../components/blog/blog-item/BlogItem";
 import Spinner from "react-bootstrap/Spinner";
+
 const Search = () => {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(getBlogs());
+  }, []);
   const [query, setQuery] = useState("");
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -16,17 +21,10 @@ const Search = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
-  useEffect(() => {
-    console.log(query);
-  });
-  const [loading, setLoading] = useState(true);
 
-  const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs);
+  const loading = useSelector((state) => state.blogs.isLoading);
 
-  React.useEffect(() => {
-    dispatch(getBlogs()).then(setLoading(false));
-  }, []);
   if (loading) {
     return (
       <div
@@ -44,7 +42,7 @@ const Search = () => {
             type="text"
             value={query}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             placeholder="Type a title of a Blog 🔎"
             aria-label="Search 🔎"
             aria-describedby="basic-addon2"
@@ -55,7 +53,9 @@ const Search = () => {
           {(() => {
             if (query === "") {
               return (
-                <h4 className="text-center m-5">Type something to search!</h4>
+                <h4 className="text-center text-light m-5">
+                  Type something to search!
+                </h4>
               );
             } else {
               return (
@@ -66,7 +66,7 @@ const Search = () => {
                     })
                     .map((blog) => (
                       <Col xs={12} s={6} md={6} lg={4} className="mb-2">
-                        <BlogItem key={blog.title} {...blog} />
+                        <BlogItem key={blog.id} {...blog} />
                       </Col>
                     ))}
                 </Row>

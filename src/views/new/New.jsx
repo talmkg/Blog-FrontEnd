@@ -67,7 +67,7 @@ const NewBlogPost = (props) => {
   };
 
   return (
-    <Container className="new-blog-container">
+    <Container className="new-blog-container text-light">
       <Form className="mt-3">
         <Form.Group controlId="blog-form">
           <Form.Label>Title</Form.Label>
@@ -76,23 +76,20 @@ const NewBlogPost = (props) => {
         <Row>
           <Col>
             <Form.Group controlId="name" className="mt-3 ">
-              <Form.Label>Preferred Name</Form.Label>
-              <Form.Control size="md" placeholder="Example: Anthony Stark" />
+              <Form.Label>Name</Form.Label>
+              <Form.Control size="md" placeholder="Anthony Stark" />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="nickname" className="mt-3 ">
-              <Form.Label>Your Nickame</Form.Label>
-              <Form.Control size="md" placeholder="Example: @jasonbourne" />
+              <Form.Label>Nickame</Form.Label>
+              <Form.Control size="md" placeholder="@jasonbourne" />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="time" className="mt-3">
-              <Form.Label>Expected Read-Time</Form.Label>
-              <Form.Control
-                size="md"
-                placeholder="Example: 2 or 3 (in minutes)  "
-              />
+              <Form.Label>Read-Time</Form.Label>
+              <Form.Control size="md" placeholder="2" />
             </Form.Group>
           </Col>
         </Row>
@@ -100,12 +97,10 @@ const NewBlogPost = (props) => {
           <div id="hide-on-mobile">
             <Form.Group
               controlId="blog-content"
-              style={{ backgroundColor: "white" }}
-              className="mt-3 p-2 rounded"
+              className="mt-3 p-2 rounded bg-light text-dark"
               id="content"
             >
               <Form.Label>Blog Content</Form.Label>
-
               <Editor
                 editorState={editorState}
                 toolbarClassName="toolbarClassName"
@@ -123,14 +118,14 @@ const NewBlogPost = (props) => {
           </div>
         </div>
         <Form.Group className="d-flex mt-3 justify-content-end">
-          <Button type="reset" size="lg" variant="outline-dark">
+          <Button type="reset" size="lg" variant="outline-light">
             Reset
           </Button>
           <Button
             type="submit"
             size="lg"
             id="submit_button"
-            variant="dark"
+            variant="light"
             style={{
               marginLeft: "1em",
             }}

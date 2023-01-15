@@ -42,7 +42,7 @@ const Blog = (props) => {
   } else {
     return (
       <div className="blog-details-root">
-        <Container>
+        <Container className="text-light">
           <Image className="blog-details-cover" src={blog.cover} fluid />
           <h1 className="blog-details-title">{blog.title}</h1>
           <div className="blog-details-container">

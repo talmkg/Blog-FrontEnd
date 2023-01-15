@@ -9,14 +9,24 @@ import Spinner from "react-bootstrap/Spinner";
 import "./styles.css";
 
 const BlogList = (props) => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs);
+  const loading = useSelector((state) => state.blogs.isLoading);
 
   React.useEffect(() => {
-    dispatch(getBlogs()).then(setLoading(false));
+    dispatch(getBlogs());
   }, []);
+
+  // let reverseArray = [];
+  // let length = blogs.length;
+  // for (let i = length - 1; i >= 0; i--) {
+  //   reverseArray.push(blogs[i]);
+  // }
+  let reverseArray = blogs.map(
+    (blog, index) => blogs[blogs.length - 1 - index]
+  );
   if (loading) {
     return (
       <div
@@ -29,9 +39,9 @@ const BlogList = (props) => {
   } else {
     return (
       <Row>
-        {blogs?.reverse().map((blog) => (
+        {reverseArray?.map((blog) => (
           <Col xs={12} s={6} md={6} lg={4} className="mb-2">
-            <BlogItem key={blog.title} {...blog} />
+            <BlogItem key={blog.id} {...blog} />
           </Col>
         ))}
       </Row>
