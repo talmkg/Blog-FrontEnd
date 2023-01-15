@@ -4,7 +4,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import { Dispatch } from "react";
 import { getBlogs } from "../../redux/actions";
 import BlogItem from "../../components/blog/blog-item/BlogItem";
 import Spinner from "react-bootstrap/Spinner";

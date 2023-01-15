@@ -18,12 +18,19 @@ body {
 #root,
 :root {
   background-image: linear-gradient(
-    to top,
-    #060707,
-    #002632,
-    #003e67,
-    #444c96,
-    #a449a8
+    to bottom,
+    #eba9ee,
+    #deb1f6,
+    #d1b8fb,
+    #c5befe,
+    #bbc4ff,
+    #bac3ff,
+    #b8c2ff,
+    #b7c1ff,
+    #c0b9ff,
+    #cbaffb,
+    #d9a5f5,
+    #e799eb
   );
   object-fit: cover;
   background-size: cover;

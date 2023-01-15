@@ -61,9 +61,9 @@ const NavBar = (props) => {
             </Link>
           </Nav>
           <Nav className="d-flex" id="dont-show-on-md">
-            <a href="/search">
+            <Link to="/search" style={{ textDecoration: "none" }}>
               <Button
-                className="blog-navbar-add-button btn-light me-2"
+                className="blog-navbar-add-button btn-light me-2 d-flex align-items-center"
                 size="md"
                 id="search-button"
               >
@@ -79,12 +79,12 @@ const NavBar = (props) => {
                 </svg>
                 Search
               </Button>
-            </a>
+            </Link>
 
             <Button
               as={Link}
               to="/new"
-              className="blog-navbar-add-button btn-light me-2"
+              className="blog-navbar-add-button btn-light me-2 d-flex align-items-center"
               size="md"
               id="post-button"
             >
