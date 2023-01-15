@@ -82,7 +82,7 @@ const NewBlogPost = (props) => {
           </Col>
           <Col>
             <Form.Group controlId="nickname" className="mt-3 ">
-              <Form.Label>Your Nickame</Form.Label>
+              <Form.Label>Nickame</Form.Label>
               <Form.Control size="md" placeholder="@jasonbourne" />
             </Form.Group>
           </Col>
