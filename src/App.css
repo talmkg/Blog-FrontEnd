@@ -12,6 +12,7 @@ body {
 @media (min-width: 1200px) {
   #main {
     margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 }
 
