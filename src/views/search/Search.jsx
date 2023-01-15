@@ -7,7 +7,12 @@ import { useEffect, useState } from "react";
 import { getBlogs } from "../../redux/actions";
 import BlogItem from "../../components/blog/blog-item/BlogItem";
 import Spinner from "react-bootstrap/Spinner";
+
 const Search = () => {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(getBlogs());
+  }, []);
   const [query, setQuery] = useState("");
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -16,17 +21,10 @@ const Search = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
-  useEffect(() => {
-    console.log(query);
-  });
-  const [loading, setLoading] = useState(true);
 
-  const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs);
+  const loading = useSelector((state) => state.blogs.isLoading);
 
-  React.useEffect(() => {
-    dispatch(getBlogs()).then(setLoading(false));
-  }, []);
   if (loading) {
     return (
       <div

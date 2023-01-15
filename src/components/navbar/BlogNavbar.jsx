@@ -117,20 +117,13 @@ const NavBar = (props) => {
               </Link>
             </div>
 
-            {/* <Link to="/profile">
+            <Link to="/profile">
               <img
                 src="https://i.pinimg.com/564x/e8/93/19/e893198660cca7281077197df5a75f14.jpg"
                 style={{ width: "40px", borderRadius: "50%" }}
                 className="hide-on-mobile hide-on-md"
               />
-            </Link> */}
-            <a href="/profile">
-              <img
-                src="https://i.pinimg.com/564x/e8/93/19/e893198660cca7281077197df5a75f14.jpg"
-                style={{ width: "40px", borderRadius: "50%" }}
-                className="hide-on-mobile hide-on-md"
-              />
-            </a>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
