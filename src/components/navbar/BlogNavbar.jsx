@@ -34,11 +34,18 @@ const NavBar = (props) => {
                 Home
               </Link>
               <Link
-                to="/bookmarks"
+                to="/saved"
                 className="nav-links text-center mx-2"
                 id="only-md-screens"
               >
-                Bookmarks
+                Saved
+              </Link>
+              <Link
+                to="/about"
+                className="nav-links text-center mx-2"
+                id="only-md-screens"
+              >
+                About us
               </Link>
             </Nav>
             <Nav className="d-flex">
