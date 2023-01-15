@@ -10,6 +10,7 @@ import Navbarmobile from "./components/navbar/NavbarMobile";
 import Search from "./views/search/Search";
 import Profile from "./views/profile/Profile";
 import { Container } from "react-bootstrap";
+import About from "./views/about/about";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" exact element={<Home />} />
             <Route path="/blogs/:id" element={<Blog />} />
             <Route path="/new" element={<NewBlogPost />} />
+            <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>

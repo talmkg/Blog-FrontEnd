@@ -19,11 +19,6 @@ const BlogList = (props) => {
     dispatch(getBlogs());
   }, []);
 
-  // let reverseArray = [];
-  // let length = blogs.length;
-  // for (let i = length - 1; i >= 0; i--) {
-  //   reverseArray.push(blogs[i]);
-  // }
   let reverseArray = blogs.map(
     (blog, index) => blogs[blogs.length - 1 - index]
   );
