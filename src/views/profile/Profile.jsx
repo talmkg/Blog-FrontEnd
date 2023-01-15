@@ -66,7 +66,7 @@ const Profile = (props) => {
         <Row>
           {blogs
             ?.filter(function (blog) {
-              return blog.author.name === "Tim A.";
+              return blog.author.name === "Tim Afanasiev";
             })
             .map((blog) => (
               <Col xs={12} s={6} md={6} lg={4} className="mb-2">

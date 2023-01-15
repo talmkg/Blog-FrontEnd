@@ -6,6 +6,14 @@
 }
 body {
   min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #eeeeee,
+    #dddddd,
+    #cccccc,
+    #bbbbbb
+  );
 }
 
 @media (max-width: 1000px) {

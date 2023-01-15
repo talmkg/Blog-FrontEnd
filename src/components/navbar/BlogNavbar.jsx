@@ -11,7 +11,7 @@ const NavBar = (props) => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg">
         <Container>
           <Navbar.Brand as={Link} to="/" className="d-flex " id="navbar-logo">
             <h2 className="m-0 p-0 me-2">ComfyBlog</h2>
@@ -42,14 +42,25 @@ const NavBar = (props) => {
               </Link>
             </Nav>
             <Nav className="d-flex">
-              <form class="d-flex" role="search" id="nav-search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </form>
+              <Button
+                as={Link}
+                to="/search"
+                className="blog-navbar-add-button btn-dark me-2"
+                size="md"
+                id="post-button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-search me-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+                Search
+              </Button>
 
               <Button
                 as={Link}
@@ -63,7 +74,7 @@ const NavBar = (props) => {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  className="bi bi-plus-lg"
+                  className="bi bi-plus-lg me-1"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />

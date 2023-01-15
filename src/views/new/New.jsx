@@ -1,7 +1,7 @@
 import { convertToHTML } from "draft-convert";
 import { EditorState } from "draft-js";
 import React, { useEffect, useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./styles.css";
@@ -26,21 +26,22 @@ const NewBlogPost = (props) => {
 
     console.log(html);
   }, [editorState]);
-  const AUTHOR_NAME = "Koho";
-  const AUTHOR_SURNAME = "L.";
 
-  const SPACE = " ";
-  // old one (end)
   const JokesOnYou = async () => {
+    const global_name = document.querySelector("#name").value;
+    const allSpacesRemoved = global_name.replaceAll(" ", "");
     const postInfo = {
       title: document.querySelector("#blog-form").value,
-      category: document.querySelector("#blog-category").value,
+      nickname: document.querySelector("#nickname").value,
       content: `${html}`,
       cover: `https://picsum.photos/id/${getRandomInt(80)}/1280/720`,
-      readTime: { value: 2, unit: "minute" },
+      readTime: {
+        value: document.querySelector("#time").value,
+        unit: "minute",
+      },
       author: {
-        name: AUTHOR_NAME,
-        avatar: `https://ui-avatars.com/api/?${AUTHOR_NAME}+${AUTHOR_SURNAME}`,
+        name: global_name,
+        avatar: `https://ui-avatars.com/api/?${allSpacesRemoved}`,
       },
     };
 
@@ -70,24 +71,38 @@ const NewBlogPost = (props) => {
       <Form className="mt-5">
         <Form.Group controlId="blog-form" className="mt-3">
           <Form.Label>Title</Form.Label>
-          <Form.Control size="lg" placeholder="Title" />
+          <Form.Control size="lg" placeholder="Title of your blog" />
         </Form.Group>
-        <Form.Group controlId="blog-category" className="mt-3">
-          <Form.Label>Category</Form.Label>
-          <Form.Control size="lg" as="select">
-            <option>Category1</option>
-            <option>Category2</option>
-            <option>Category3</option>
-            <option>Category4</option>
-            <option>Category5</option>
-          </Form.Control>
-        </Form.Group>
+        <Row>
+          <Col>
+            <Form.Group controlId="name" className="mt-3 ">
+              <Form.Label>Preferred Name</Form.Label>
+              <Form.Control size="md" placeholder="Example: Anthony Stark" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="nickname" className="mt-3 ">
+              <Form.Label>Your Nickame</Form.Label>
+              <Form.Control size="md" placeholder="Example: @jasonbourne" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="time" className="mt-3">
+              <Form.Label>Expected Read-Time</Form.Label>
+              <Form.Control
+                size="md"
+                placeholder="Example: 2 or 3 (in minutes)  "
+              />
+            </Form.Group>
+          </Col>
+        </Row>
         <Form.Group
           controlId="blog-content"
           style={{ backgroundColor: "white" }}
           className="mt-3 p-2 rounded"
         >
           <Form.Label>Blog Content</Form.Label>
+
           <Editor
             editorState={editorState}
             toolbarClassName="toolbarClassName"
