@@ -50,7 +50,7 @@ const Blog = (props) => {
               <BlogAuthor {...blog.author} />
             </div>
             <div className="blog-details-info">
-              <div>{blog.createdAt}</div>
+              <div>{new Date(blog.createdAt).toLocaleDateString()}</div>
               <div className="d-flex">
                 <div>{`${blog.readTime.value} ${blog.readTime.unit} read`}</div>
               </div>

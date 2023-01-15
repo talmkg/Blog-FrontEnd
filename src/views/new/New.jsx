@@ -57,7 +57,7 @@ const NewBlogPost = (props) => {
       const response = await fetch(endpoint, options);
       if (response.ok) {
         console.log(response);
-        alert("Posted!");
+        window.location.replace("/");
       } else {
         throw new Error("Error while uploading information");
       }
@@ -68,8 +68,8 @@ const NewBlogPost = (props) => {
 
   return (
     <Container className="new-blog-container">
-      <Form className="mt-5">
-        <Form.Group controlId="blog-form" className="mt-3">
+      <Form className="mt-3">
+        <Form.Group controlId="blog-form">
           <Form.Label>Title</Form.Label>
           <Form.Control size="lg" placeholder="Title of your blog" />
         </Form.Group>
@@ -96,21 +96,32 @@ const NewBlogPost = (props) => {
             </Form.Group>
           </Col>
         </Row>
-        <Form.Group
-          controlId="blog-content"
-          style={{ backgroundColor: "white" }}
-          className="mt-3 p-2 rounded"
-        >
-          <Form.Label>Blog Content</Form.Label>
+        <div>
+          <div id="hide-on-mobile">
+            <Form.Group
+              controlId="blog-content"
+              style={{ backgroundColor: "white" }}
+              className="mt-3 p-2 rounded"
+              id="content"
+            >
+              <Form.Label>Blog Content</Form.Label>
 
-          <Editor
-            editorState={editorState}
-            toolbarClassName="toolbarClassName"
-            wrapperClassName="wrapperClassName"
-            editorClassName="editorClassName"
-            onEditorStateChange={setEditorState}
-          />
-        </Form.Group>
+              <Editor
+                editorState={editorState}
+                toolbarClassName="toolbarClassName"
+                wrapperClassName="wrapperClassName"
+                editorClassName="editorClassName"
+                onEditorStateChange={setEditorState}
+              />
+            </Form.Group>
+          </div>
+          <div className="d-none" id="show-on-mobile">
+            <Form.Group className="mb-3" controlId="blog-content">
+              <Form.Label>Blog Content</Form.Label>
+              <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+          </div>
+        </div>
         <Form.Group className="d-flex mt-3 justify-content-end">
           <Button type="reset" size="lg" variant="outline-dark">
             Reset

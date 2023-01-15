@@ -8,3 +8,15 @@
 
   margin-bottom: 80px;
 }
+
+#content {
+  min-height: 200px !important;
+}
+@media (max-width: 700px) {
+  #hide-on-mobile {
+    display: none;
+  }
+  #show-on-mobile {
+    display: block !important;
+  }
+}

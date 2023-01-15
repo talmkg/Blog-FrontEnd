@@ -29,7 +29,7 @@ const BlogList = (props) => {
   } else {
     return (
       <Row>
-        {blogs?.map((blog) => (
+        {blogs?.reverse().map((blog) => (
           <Col xs={12} s={6} md={6} lg={4} className="mb-2">
             <BlogItem key={blog.title} {...blog} />
           </Col>
