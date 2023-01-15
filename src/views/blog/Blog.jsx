@@ -3,7 +3,7 @@ import { Container, Image } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import BlogAuthor from "../../components/blog/blog-author/BlogAuthor";
 import BlogLike from "../../components/likes/BlogLike";
-
+import Spinner from "react-bootstrap/Spinner";
 import "./styles.css";
 const Blog = (props) => {
   const [blog, setBlog] = useState({});
@@ -32,8 +32,11 @@ const Blog = (props) => {
   //----------------------
   if (loading) {
     return (
-      <div className="d-flex justify-content-center">
-        <h1>Loading...</h1>
+      <div
+        className="d-flex justify-content-center align-items-center"
+        id="full-screen"
+      >
+        <Spinner animation="border" />
       </div>
     );
   } else {

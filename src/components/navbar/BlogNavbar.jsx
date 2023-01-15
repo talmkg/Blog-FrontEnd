@@ -12,7 +12,7 @@ const NavBar = (props) => {
   return (
     <>
       <Navbar bg="light" expand="lg">
-        <Container id="navbar-id">
+        <Container>
           <Navbar.Brand as={Link} to="/" className="d-flex " id="navbar-logo">
             <h2 className="m-0 p-0 me-2">ComfyBlog</h2>
             <h2 className="m-0 p-0">

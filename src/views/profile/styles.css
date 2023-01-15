@@ -10,6 +10,7 @@
 .no-underline {
   text-decoration: none !important;
   color: black !important;
+  cursor: pointer;
 }
 .active {
   border-bottom: 3px solid black;
