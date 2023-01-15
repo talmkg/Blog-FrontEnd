@@ -7,7 +7,7 @@ const BlogItem = (props) => {
   const { title, cover, author, id, readTime } = props;
 
   return (
-    <a href={`blogs/${id}`} id="blog-link">
+    <Link to={`/blogs/${id}`} id="blog-link">
       <Card className="blog-card bg-dark text-light" id="blog-link">
         <Card.Img
           variant="top"
@@ -31,7 +31,7 @@ const BlogItem = (props) => {
           </Row>
         </Card.Footer>
       </Card>
-    </a>
+    </Link>
   );
 };
 

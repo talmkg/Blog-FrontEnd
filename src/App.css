@@ -3,6 +3,7 @@ body {
 }
 #main {
   background-color: #141414 !important;
+  min-height: 100vh;
 }
 @media (max-width: 1200px) {
   #main {
@@ -18,21 +19,7 @@ body {
 
 #root,
 :root {
-  background-image: linear-gradient(
-    to bottom,
-    #eba9ee,
-    #deb1f6,
-    #d1b8fb,
-    #c5befe,
-    #bbc4ff,
-    #bac3ff,
-    #b8c2ff,
-    #b7c1ff,
-    #c0b9ff,
-    #cbaffb,
-    #d9a5f5,
-    #e799eb
-  );
+  background-image: url("https://wallpaper.dog/large/10981226.jpg");
   object-fit: cover;
   background-size: cover;
   background-attachment: fixed;
