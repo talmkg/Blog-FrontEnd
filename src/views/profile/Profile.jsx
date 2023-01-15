@@ -14,7 +14,7 @@ const Profile = (props) => {
     dispatch(getBlogs());
   }, []);
   return (
-    <Container className="new-blog-container text-dark pt-4">
+    <Container className="new-blog-container text-light pt-4">
       <Row className="d-flex justify-content-center mb-5">
         <Col xs={12} id="profile-pictures">
           <div className="position-relative w-100 d-flex justify-content-center">

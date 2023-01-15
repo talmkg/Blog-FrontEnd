@@ -1,6 +1,31 @@
 body {
   font-family: "Outfit", sans-serif;
 }
-@media (max-width: 700px) {
-  /* … */
+#main {
+  background-color: #141414 !important;
+}
+@media (max-width: 1200px) {
+  #main {
+    margin-top: 0rem;
+  }
+}
+@media (min-width: 1200px) {
+  #main {
+    margin-top: 5rem;
+  }
+}
+
+#root,
+:root {
+  background-image: linear-gradient(
+    to top,
+    #060707,
+    #002632,
+    #003e67,
+    #444c96,
+    #a449a8
+  );
+  object-fit: cover;
+  background-size: cover;
+  background-attachment: fixed;
 }

@@ -9,7 +9,12 @@
   height: 100%;
 }
 
-.blog-link {
+#blog-link {
   text-decoration: none;
-  color: inherit;
+  transition: all 0.2s;
+}
+
+#blog-link:hover {
+  opacity: 0.9;
+  transition: all 0.2s;
 }

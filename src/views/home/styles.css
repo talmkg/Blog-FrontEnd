@@ -4,18 +4,9 @@
   margin-top: 150px;
   margin-bottom: 50px;
 }
-body {
-  min-height: 100vh;
-  background-image: linear-gradient(
-    to bottom,
-    #ffffff,
-    #eeeeee,
-    #dddddd,
-    #cccccc,
-    #bbbbbb
-  );
+#container {
+  min-height: 80vh;
 }
-
 @media (max-width: 1000px) {
 }
 @media (min-width: 1000px) {

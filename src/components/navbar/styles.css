@@ -10,7 +10,9 @@
   -moz-box-shadow: 2px 0px 18px 1px rgba(222, 222, 222, 1);
   box-shadow: 2px 0px 4px 1px rgba(222, 222, 222, 1);
 }
-
+#toggler {
+  background-color: white !important;
+}
 #nav-link {
   transition: all 0.3s;
   padding: 0.2rem;
@@ -27,12 +29,12 @@
   font-size: 20px;
   transition: all 0.2s;
   opacity: 0.9;
-  color: rgb(71, 71, 71);
+  color: rgb(192, 192, 192);
 }
 .nav-links:hover {
   transition: all 0.2s;
   opacity: 1;
-  color: rgb(19, 19, 19);
+  color: rgb(224, 224, 224);
 }
 .shadow:hover {
   box-shadow: 0px 0px 8px 8px rgb(179, 179, 179);
@@ -110,9 +112,18 @@ ALL BIGGER THAN MOBILE
   .hide-on-md {
     display: none;
   }
+  #dont-show-on-md {
+    display: none !important;
+  }
+  #search-button {
+    display: block !important;
+  }
 }
 @media (min-width: 1000px) {
   #nav-search2 {
     display: none !important;
+  }
+  #desktop-nav {
+    background-color: #1f1f1f;
   }
 }
