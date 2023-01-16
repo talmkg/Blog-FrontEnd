@@ -2,16 +2,21 @@ import { convertToHTML } from "draft-convert";
 import { EditorState } from "draft-js";
 import React, { useEffect, useState } from "react";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { newPostAction } from "../../redux/actions";
+import { addCoverAction } from "../../redux/actions";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./styles.css";
 const NewBlogPost = (props) => {
-  //-------------------NEW-----------------------
-  // old one
-  const [imageBlog, setImageBlog] = useState(null);
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
+  const dispatch = useDispatch();
+  const [poster, setPoster] = useState([]);
+  const [title, setTitle] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [name, setName] = useState("");
+  const [value, setValue] = useState("");
+  const idForCover = useSelector((state) => state.id);
+
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -26,103 +31,96 @@ const NewBlogPost = (props) => {
       });
 
     console.log(html);
+    console.log(poster);
   }, [editorState]);
 
-  const JokesOnYou = async () => {
-    const global_name = document.querySelector("#name").value;
-    const allSpacesRemoved = global_name.replaceAll(" ", "");
-    const postInfo = {
-      title: document.querySelector("#blog-form").value,
-      nickname: document.querySelector("#nickname").value,
-      content: `${html}`,
-      cover: `https://picsum.photos/id/${getRandomInt(80)}/1280/720`,
-      readTime: {
-        value: document.querySelector("#time").value,
-        unit: "minute",
-      },
-      author: {
-        name: global_name,
-        avatar: `https://ui-avatars.com/api/?${allSpacesRemoved}`,
-      },
-    };
-
-    const options = {
-      method: "POST",
-      body: JSON.stringify(postInfo),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    try {
-      const endpoint = `https://main.up.railway.app/blogs`;
-      const response = await fetch(endpoint, options);
-      if (response.ok) {
-        console.log(response);
-        window.location.replace("/");
-      } else {
-        throw new Error("Error while uploading information");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    //---------------------------------------------------------------------------------------
-
-    // const formData2 = new FormData();
-
-    // formData2.append("blog", imageBlog);
-
-    // const options3 = {
-    //   method: "POST",
-    //   body: formData2,
-    // };
-
-    // try {
-    //   const endpoint = `https://main.up.railway.app/files/${idd.id}/blog`;
-    //   const response = await fetch(endpoint, options3);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-
-    //---------------------------------------------------------------------------------------
+  // const global_name = document.querySelector("name").value;
+  // const allSpacesRemoved = global_name.replaceAll(" ", "");
+  const itemToSend = {
+    title: title,
+    nickname: nickname,
+    content: `${html}`,
+    cover: poster,
+    author: {
+      name: name,
+      avatar: `https://ui-avatars.com/api/?tim+a`,
+    },
+    readTime: {
+      value: value,
+      unit: "minute",
+    },
   };
+  const posterChangeHandler = (e) => {
+    setPoster(e.target.files[0]);
+  };
+  const onChangeHandler = (value, fieldToSet) => {
+    fieldToSet(value);
+  };
+  // so when a field changes it changes the value of the same state,
+  // so when title field changes it changes the state of the title text.
+
+  const onSubmitHandler = () => {
+    dispatch(newPostAction(itemToSend));
+    setTimeout(() => {
+      const formData = new FormData();
+      formData.append("poster", poster);
+      dispatch(addCoverAction(idForCover, formData));
+      // window.location.replace("/");
+    }, 1500);
+  };
+
+  //---------------------------------------------------------------------------------------
 
   return (
     <Container className="new-blog-container text-light">
       <Form className="mt-3">
         <Form.Group controlId="blog-form">
           <Form.Label>Title</Form.Label>
-          <Form.Control size="lg" placeholder="Title of your blog" />
+          <Form.Control
+            size="lg"
+            placeholder="Title of your blog"
+            value={title}
+            onChange={(e) => onChangeHandler(e.target.value, setTitle)}
+          />
         </Form.Group>
         <Row>
           <Col>
             <Form.Group controlId="name" className="mt-3 ">
               <Form.Label>Name</Form.Label>
-              <Form.Control size="md" placeholder="Anthony Stark" />
+              <Form.Control
+                size="md"
+                placeholder="Anthony Stark"
+                value={name}
+                onChange={(e) => onChangeHandler(e.target.value, setName)}
+              />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="nickname" className="mt-3 ">
               <Form.Label>Nickame</Form.Label>
-              <Form.Control size="md" placeholder="@jasonbourne" />
+              <Form.Control
+                size="md"
+                placeholder="@jasonbourne"
+                value={nickname}
+                onChange={(e) => onChangeHandler(e.target.value, setNickname)}
+              />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="time" className="mt-3">
               <Form.Label>Read-Time</Form.Label>
-              <Form.Control size="md" placeholder="2" />
+              <Form.Control
+                size="md"
+                placeholder="2"
+                value={value}
+                onChange={(e) => onChangeHandler(e.target.value, setValue)}
+              />
             </Form.Group>
           </Col>
         </Row>
-        <Form.Group className="mt-4 d-flex flex-column">
-          <Form.Label>Post Cover</Form.Label>
-          <input
-            type="file"
-            id="blog"
-            onChange={(e) => setImageBlog(e.target.files[0])}
-          ></input>
-        </Form.Group>
+
         <div>
-          <div id="hide-on-mobile">
+          <div>
             <Form.Group
               controlId="blog-content"
               className="mt-3 p-2 rounded bg-light text-dark"
@@ -138,29 +136,43 @@ const NewBlogPost = (props) => {
               />
             </Form.Group>
           </div>
-          <div className="d-none" id="show-on-mobile">
-            <Form.Group className="mb-3" controlId="blog-content">
-              <Form.Label>Blog Content</Form.Label>
-              <Form.Control as="textarea" rows={3} />
-            </Form.Group>
-          </div>
         </div>
-        <Form.Group className="d-flex mt-3 justify-content-end">
-          <Button type="reset" size="lg" variant="outline-light">
-            Reset
-          </Button>
-          <Button
-            type="submit"
-            size="lg"
-            id="submit_button"
-            variant="light"
-            style={{
-              marginLeft: "1em",
-            }}
-            onClick={JokesOnYou}
-          >
-            Submit
-          </Button>
+        <Form.Group className="d-flex mt-3 justify-content-between">
+          <div className="d-flex">
+            <Row className="d-flex">
+              <Col xs={4}>
+                <Form.Label style={{ fontSize: "14px" }}>
+                  Upload Your Poster:
+                </Form.Label>
+              </Col>
+              <Col xs={8}>
+                <Form.Control
+                  type="file"
+                  onChange={(e) => posterChangeHandler(e)}
+                  accept=".jpg, .jpeg"
+                  className="h-75"
+                />
+              </Col>
+            </Row>
+          </div>
+          <div>
+            <Button type="reset" size="lg" variant="outline-light">
+              Reset
+            </Button>
+
+            <Button
+              // type="submit"
+              size="lg"
+              id="submit_button"
+              variant="light"
+              style={{
+                marginLeft: "1em",
+              }}
+              onClick={onSubmitHandler}
+            >
+              Submit
+            </Button>
+          </div>
         </Form.Group>
       </Form>
     </Container>
