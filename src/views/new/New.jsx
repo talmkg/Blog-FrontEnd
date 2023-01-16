@@ -8,6 +8,7 @@ import "./styles.css";
 const NewBlogPost = (props) => {
   //-------------------NEW-----------------------
   // old one
+  const [imageBlog, setImageBlog] = useState(null);
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -64,6 +65,25 @@ const NewBlogPost = (props) => {
     } catch (error) {
       console.log(error);
     }
+    //---------------------------------------------------------------------------------------
+
+    // const formData2 = new FormData();
+
+    // formData2.append("blog", imageBlog);
+
+    // const options3 = {
+    //   method: "POST",
+    //   body: formData2,
+    // };
+
+    // try {
+    //   const endpoint = `https://main.up.railway.app/files/${idd.id}/blog`;
+    //   const response = await fetch(endpoint, options3);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    //---------------------------------------------------------------------------------------
   };
 
   return (
@@ -93,6 +113,14 @@ const NewBlogPost = (props) => {
             </Form.Group>
           </Col>
         </Row>
+        <Form.Group className="mt-4 d-flex flex-column">
+          <Form.Label>Post Cover</Form.Label>
+          <input
+            type="file"
+            id="blog"
+            onChange={(e) => setImageBlog(e.target.files[0])}
+          ></input>
+        </Form.Group>
         <div>
           <div id="hide-on-mobile">
             <Form.Group
