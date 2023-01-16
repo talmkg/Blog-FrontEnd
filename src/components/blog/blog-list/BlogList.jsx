@@ -50,11 +50,13 @@ const BlogList = (props) => {
             lg={5}
             className="d-flex align-items-between flex-wrap"
           >
-            {reverseArray?.map((blog, index) => {
-              if (index > 0 && index < 5) {
-                return <SideBlogItem key={blog.id} {...blog} />;
-              }
-            })}
+            <Row>
+              {reverseArray?.map((blog, index) => {
+                if (index > 0 && index < 5) {
+                  return <SideBlogItem key={blog.id} {...blog} />;
+                }
+              })}
+            </Row>
           </Col>
         </Row>
         <div className="d-flex justify-content-between mt-5 mb-3 align-items-center">

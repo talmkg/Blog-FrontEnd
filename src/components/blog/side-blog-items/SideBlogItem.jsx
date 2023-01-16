@@ -13,33 +13,35 @@ const SideBlogItem = (props) => {
         id="blog-link"
         className="d-flex align-items-center"
       >
-        <div class="card bg-dark">
-          <div class="row g-0">
-            <div class="col-md-5">
-              <Card.Img
-                src={cover}
-                class="w-100 h-100 img-fluid rounded-start"
-                alt="..."
-                style={{ objectFit: "cover", aspectRatio: 3 / 2 }}
-              />
-            </div>
-            <div class="col-md-7">
-              <div class="card-body text-light">
-                <div className="mb-2">
-                  <BlogAuthor {...author} {...readTime} />
-                </div>
-                <h5 class="card-title text-light text-truncate">{title}</h5>
+        <Col>
+          <div class="card bg-dark">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <Card.Img
+                  src={cover}
+                  class="w-100 h-100 img-fluid rounded-start"
+                  alt="..."
+                  style={{ objectFit: "cover", aspectRatio: 3 / 2 }}
+                />
+              </div>
+              <div class="col-md-7">
+                <div class="card-body text-light">
+                  <div className="mb-2">
+                    <BlogAuthor {...author} {...readTime} />
+                  </div>
+                  <h5 class="card-title text-light text-truncate">{title}</h5>
 
-                <small>
-                  <p class="text-muted card-text text-truncate">
-                    {new Date(createdAt).toLocaleDateString()} •{" "}
-                    {readTime.value} {readTime.unit}('s) Read
-                  </p>
-                </small>
+                  <small>
+                    <p class="text-muted card-text text-truncate">
+                      {new Date(createdAt).toLocaleDateString()} •{" "}
+                      {readTime.value} {readTime.unit}('s) Read
+                    </p>
+                  </small>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Col>
       </Link>
     </>
   );
