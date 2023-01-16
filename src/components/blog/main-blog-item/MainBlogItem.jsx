@@ -28,19 +28,15 @@ const MainBlogItem = (props) => {
             </Button>
           </div>
           <Card.Title className="text-truncate">{title}</Card.Title>
-          <Row className="d-flex align-items-center justify-content-between">
-            <Col xs={12}>
-              <div className="first_post">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: content,
-                  }}
-                  className="text-muted"
-                ></p>
-              </div>
-            </Col>
-          </Row>
-          <div>
+          <div id="text-main-blog">
+            <p
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+              className="text-muted"
+            ></p>
+          </div>
+          <div className="bg-dark">
             <p id="no-p-no-m" className="text-truncate text-muted">
               {new Date(createdAt).toLocaleDateString()} • {readTime.value}
               {readTime.unit}('s) Read

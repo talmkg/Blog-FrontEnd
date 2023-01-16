@@ -8,74 +8,35 @@ const SideBlogItem = (props) => {
 
   return (
     <>
-      {/* <Card className="blog-card bg-dark text-light" id="blog-link">
-        <Card.Img
-          variant="top"
-          src={cover}
-          style={{ aspectRatio: 16 / 9, objectFit: "cover" }}
-        />
-        <Card.Body>
-          <div className="d-flex justify-content-between mb-3">
-            <BlogAuthor {...author} {...readTime} />
-            <Button
-              variant="outline-secondary"
-              size="sm"
-              className=" mx-2 rounded-3"
-              id="follow-button"
-            >
-              Follow
-            </Button>
-          </div>
-          <Card.Title className="text-truncate">{title}</Card.Title>
-          <Row className="d-flex align-items-center justify-content-between">
-            <Col xs={12}>
-              <div className="first_post">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: content,
-                  }}
-                  className="text-muted"
-                ></p>
-              </div>
-            </Col>
-          </Row>
-          <div>
-            <p id="no-p-no-m" className="text-truncate text-muted">
-              {new Date(createdAt).toLocaleDateString()} •{readTime.value}{" "}
-              {readTime.unit}('s) Read
-            </p>
-          </div>
-        </Card.Body>
-      </Card> */}
-
-      <Link to={`/blogs/${id}`} id="blog-link">
+      <Link
+        to={`/blogs/${id}`}
+        id="blog-link"
+        className="d-flex align-items-end"
+      >
         <Container>
-          <div
-            class="card bg-dark mb-3"
-            style={{ maxWidth: "540px", border: "none" }}
-          >
+          <div class="card bg-dark">
             <div class="row g-0">
-              <div class="col-md-4">
+              <div class="col-md-5">
                 <Card.Img
                   src={cover}
-                  class="w-100 h-100 rounded-start"
+                  class="w-100 h-100 img-fluid rounded-start"
                   alt="..."
-                  style={{ aspectRatio: 16 / 9, objectFit: "cover" }}
+                  style={{ objectFit: "cover", aspectRatio: 16 / 9 }}
                 />
               </div>
-              <div class="col-md-8">
+              <div class="col-md-7">
                 <div class="card-body text-light">
                   <div className="mb-2">
                     <BlogAuthor {...author} {...readTime} />
                   </div>
-                  <h5 class="card-title text-light">{title}</h5>
-                  <p class="card-text">
-                    <small class="text-muted">
+                  <h5 class="card-title text-light text-truncate">{title}</h5>
+
+                  <small>
+                    <p class="text-muted card-text text-truncate">
                       {new Date(createdAt).toLocaleDateString()} •{" "}
-                      {readTime.value}
-                      {readTime.unit}('s) Read
-                    </small>
-                  </p>
+                      {readTime.value} {readTime.unit}('s) Read
+                    </p>
+                  </small>
                 </div>
               </div>
             </div>

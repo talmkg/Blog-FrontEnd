@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import BlogItem from "../blog-item/BlogItem";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -36,24 +36,33 @@ const BlogList = (props) => {
   } else {
     return (
       <>
-        <div className="d-flex ">
-          <Col xs={7} className="mb-2">
+        <Row className="d-flex align-items-around">
+          <Col xs={12} md={6} lg={7} className="mb-2">
             {reverseArray?.map((blog, index) => {
               if (index == 0) {
                 return <MainBlogItem key={blog.id} {...blog} />;
               }
             })}
           </Col>
-          <Col xs={5}>
+          <Col
+            xs={12}
+            md={6}
+            lg={5}
+            className="d-flex align-items-around flex-wrap"
+          >
             {reverseArray?.map((blog, index) => {
               if (index > 0 && index < 5) {
                 return <SideBlogItem key={blog.id} {...blog} />;
               }
             })}
           </Col>
+        </Row>
+        <div className="d-flex justify-content-between mt-5 mb-3 align-items-center">
+          <h3 className="text-light ">Latest Articles</h3>
+          <Button variant="outline-secondary">See All</Button>
         </div>
         <Row>
-          {reverseArray?.map((blog, index) => {
+          {reverseArray?.slice(0, 15).map((blog, index) => {
             if (index > 5) {
               return (
                 <Col xs={12} s={6} md={6} lg={4} className="mb-2">
