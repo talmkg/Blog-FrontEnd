@@ -51,31 +51,28 @@ const Blog = (props) => {
               fluid
             />
           </div>
-
-          <h1 className="blog-details-title">{blog.title}</h1>
-          <div className="blog-details-container">
-            <div className="blog-details-author">
-              <BlogAuthor {...blog.author} />
-            </div>
-            <div className="blog-details-info">
-              <div>{new Date(blog.createdAt).toLocaleDateString()}</div>
-              <div className="d-flex">
-                <div>{`${blog.readTime.value} ${blog.readTime.unit} read`}</div>
+          <Container fluid className="p-3">
+            <h1 className="blog-details-title">{blog.title}</h1>
+            <div className="d-flex align-items-center justify-content-between mb-4">
+              <div className="blog-details-author">
+                <BlogAuthor {...blog.author} />
               </div>
-              <div
-                style={{
-                  marginTop: 20,
-                }}
-              >
-                <BlogLike defaultLikes={["123"]} onChange={console.log} />
+              <div className="text-center d-flex justify-content-between">
+                <div>
+                  <div>{new Date(blog.createdAt).toLocaleDateString()}</div>
+                  {`${blog.readTime.value} ${blog.readTime.unit} read`}
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: blog.content,
-            }}
-          ></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: blog.content,
+              }}
+            ></div>
+            <div className="d-flex justify-content-end">
+              <BlogLike defaultLikes={["123"]} onChange={console.log} />
+            </div>
+          </Container>
         </Container>
       </div>
     );

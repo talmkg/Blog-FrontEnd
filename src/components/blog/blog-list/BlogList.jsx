@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { getBlogs } from "../../../redux/actions";
 import Spinner from "react-bootstrap/Spinner";
 import "./styles.css";
+import MainBlogItem from "../main-blog-item/MainBlogItem";
+import SideBlogItem from "../side-blog-items/SideBlogItem";
 
 const BlogList = (props) => {
   // const [loading, setLoading] = useState(true);
@@ -33,13 +35,35 @@ const BlogList = (props) => {
     );
   } else {
     return (
-      <Row>
-        {reverseArray?.map((blog) => (
-          <Col xs={12} s={6} md={6} lg={4} className="mb-2">
-            <BlogItem key={blog.id} {...blog} />
+      <>
+        <div className="d-flex ">
+          <Col xs={7} className="mb-2">
+            {reverseArray?.map((blog, index) => {
+              if (index == 0) {
+                return <MainBlogItem key={blog.id} {...blog} />;
+              }
+            })}
           </Col>
-        ))}
-      </Row>
+          <Col xs={5}>
+            {reverseArray?.map((blog, index) => {
+              if (index > 0 && index < 5) {
+                return <SideBlogItem key={blog.id} {...blog} />;
+              }
+            })}
+          </Col>
+        </div>
+        <Row>
+          {reverseArray?.map((blog, index) => {
+            if (index > 5) {
+              return (
+                <Col xs={12} s={6} md={6} lg={4} className="mb-2">
+                  <BlogItem key={blog.id} {...blog} />
+                </Col>
+              );
+            }
+          })}
+        </Row>
+      </>
     );
   }
 };
