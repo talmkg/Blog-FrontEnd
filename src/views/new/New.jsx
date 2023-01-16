@@ -9,14 +9,11 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./styles.css";
 const NewBlogPost = (props) => {
-  const dispatch = useDispatch();
   const [poster, setPoster] = useState([]);
   const [title, setTitle] = useState("");
   const [nickname, setNickname] = useState("");
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
-  const idForCover = useSelector((state) => state.id);
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -30,20 +27,15 @@ const NewBlogPost = (props) => {
         event.preventDefault();
       });
 
-    console.log(html);
     console.log(poster);
   }, [editorState]);
-
-  // const global_name = document.querySelector("name").value;
-  // const allSpacesRemoved = global_name.replaceAll(" ", "");
   const itemToSend = {
     title: title,
     nickname: nickname,
     content: `${html}`,
-    cover: poster,
     author: {
       name: name,
-      avatar: `https://ui-avatars.com/api/?tim+a`,
+      avatar: "https://ui-avatars.com/api/?tim",
     },
     readTime: {
       value: value,
@@ -56,20 +48,41 @@ const NewBlogPost = (props) => {
   const onChangeHandler = (value, fieldToSet) => {
     fieldToSet(value);
   };
-  // so when a field changes it changes the value of the same state,
-  // so when title field changes it changes the state of the title text.
-
   const onSubmitHandler = () => {
-    dispatch(newPostAction(itemToSend));
-    setTimeout(() => {
-      const formData = new FormData();
-      formData.append("poster", poster);
-      dispatch(addCoverAction(idForCover, formData));
-      // window.location.replace("/");
-    }, 1500);
+    const formData = new FormData();
+    console.log(poster);
+    formData.append("cover", poster);
+    console.log(formData);
+    newPostAction(formData);
   };
 
   //---------------------------------------------------------------------------------------
+  const newPostAction = (formData) => {
+    const options = {
+      method: "POST",
+      body: JSON.stringify(itemToSend),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch("https://main.up.railway.app/blogs/", options)
+      .then((response) => response.json())
+      .then((s) => {
+        console.log(s);
+        return s;
+      })
+      .then((savedPost) => savedPost.id)
+      .then((savedPostId) =>
+        fetch(`https://main.up.railway.app/blogs/${savedPostId}/cover`, {
+          method: "PUT",
+          body: formData,
+        }).then(
+          setTimeout(() => {
+            window.location.replace("/");
+          }, 1000)
+        )
+      );
+  };
 
   return (
     <Container className="new-blog-container text-light">

@@ -15,6 +15,7 @@ const mainReducer = (state = initialState, action) => {
         isLoading: false,
       };
     case SET_ID: {
+      console.log(action.payload);
       return {
         ...state,
         id: action.payload,
