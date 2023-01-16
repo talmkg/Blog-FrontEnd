@@ -43,7 +43,15 @@ const Blog = (props) => {
     return (
       <div className="blog-details-root">
         <Container className="text-light">
-          <Image className="blog-details-cover" src={blog.cover} fluid />
+          <div className="d-flex justify-content-center">
+            <Image
+              className="blog-details-cover w-75"
+              src={blog.cover}
+              style={{ aspectRatio: 16 / 9 }}
+              fluid
+            />
+          </div>
+
           <h1 className="blog-details-title">{blog.title}</h1>
           <div className="blog-details-container">
             <div className="blog-details-author">

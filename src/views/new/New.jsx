@@ -76,11 +76,13 @@ const NewBlogPost = (props) => {
         fetch(`https://main.up.railway.app/blogs/${savedPostId}/cover`, {
           method: "PUT",
           body: formData,
-        }).then(
-          setTimeout(() => {
-            window.location.replace("/");
-          }, 1000)
-        )
+        })
+          .then((response) => response.json())
+          .then((s) => {
+            if (s) {
+              window.location.replace("/");
+            }
+          })
       );
   };
 
