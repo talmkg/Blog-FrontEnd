@@ -150,42 +150,37 @@ const NewBlogPost = (props) => {
             </Form.Group>
           </div>
         </div>
-        <Form.Group className="d-flex mt-3 justify-content-between">
-          <div className="d-flex">
-            <Row className="d-flex">
-              <Col xs={4}>
-                <Form.Label style={{ fontSize: "14px" }}>
-                  Upload Your Poster:
-                </Form.Label>
-              </Col>
-              <Col xs={8}>
-                <Form.Control
-                  type="file"
-                  onChange={(e) => posterChangeHandler(e)}
-                  accept=".jpg, .jpeg"
-                  className="h-75"
-                />
-              </Col>
-            </Row>
-          </div>
-          <div>
-            <Button type="reset" size="lg" variant="outline-light">
-              Reset
-            </Button>
+        <div className="d-flex justify-content-start w-100 p-2">
+          <Row className="d-flex">
+            <Col xs={4}>
+              <Form.Label>Upload Your cover:</Form.Label>
+            </Col>
+            <Col xs={8}>
+              <Form.Control
+                type="file"
+                onChange={(e) => posterChangeHandler(e)}
+                accept=".jpg, .jpeg"
+              />
+            </Col>
+          </Row>
+        </div>
+        <Form.Group className="d-flex mt-3 justify-content-end">
+          <Button type="reset" size="lg" variant="outline-light">
+            Reset
+          </Button>
 
-            <Button
-              // type="submit"
-              size="lg"
-              id="submit_button"
-              variant="light"
-              style={{
-                marginLeft: "1em",
-              }}
-              onClick={onSubmitHandler}
-            >
-              Submit
-            </Button>
-          </div>
+          <Button
+            // type="submit"
+            size="lg"
+            id="submit_button"
+            variant="light"
+            style={{
+              marginLeft: "1em",
+            }}
+            onClick={onSubmitHandler}
+          >
+            Submit
+          </Button>
         </Form.Group>
       </Form>
     </Container>
