@@ -18,8 +18,37 @@
   opacity: 0.9;
   transition: all 0.2s;
 }
-.first_post {
-  max-height: 30px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+@media only screen and (max-width: 600px) {
+  #text-main-blog {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 100px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #text-main-blog {
+    max-height: 145px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #blog-link {
+    margin-bottom: 10rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #text-main-blog {
+    max-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

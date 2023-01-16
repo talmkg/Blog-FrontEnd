@@ -7,7 +7,7 @@ const MainBlogItem = (props) => {
   const { title, cover, author, id, readTime, content, createdAt } = props;
 
   return (
-    <Link to={`/blogs/${id}`} id="blog-link">
+    <Link to={`/blogs/${id}`} id="blog-link" style={{ body: "unset" }}>
       <Card className="blog-card bg-dark text-light" id="blog-link">
         <Card.Img
           variant="top"
@@ -28,21 +28,17 @@ const MainBlogItem = (props) => {
             </Button>
           </div>
           <Card.Title className="text-truncate">{title}</Card.Title>
-          <Row className="d-flex align-items-center justify-content-between">
-            <Col xs={12}>
-              <div className="first_post">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: content,
-                  }}
-                  className="text-muted"
-                ></p>
-              </div>
-            </Col>
-          </Row>
-          <div>
+          <div id="text-main-blog">
+            <p
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+              className="text-muted"
+            ></p>
+          </div>
+          <div className="bg-dark">
             <p id="no-p-no-m" className="text-truncate text-muted">
-              {new Date(createdAt).toLocaleDateString()} • {readTime.value}
+              {new Date(createdAt).toLocaleDateString()} • {readTime.value}{" "}
               {readTime.unit}('s) Read
             </p>
           </div>
