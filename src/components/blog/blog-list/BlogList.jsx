@@ -36,8 +36,8 @@ const BlogList = (props) => {
   } else {
     return (
       <>
-        <Row className="d-flex align-items-around">
-          <Col xs={12} md={6} lg={7} className="mb-2">
+        <Row className="g-2">
+          <Col xs={12} md={6} lg={7}>
             {reverseArray?.map((blog, index) => {
               if (index == 0) {
                 return <MainBlogItem key={blog.id} {...blog} />;
@@ -48,7 +48,7 @@ const BlogList = (props) => {
             xs={12}
             md={6}
             lg={5}
-            className="d-flex align-items-around flex-wrap"
+            className="d-flex align-items-between flex-wrap"
           >
             {reverseArray?.map((blog, index) => {
               if (index > 0 && index < 5) {
@@ -58,7 +58,7 @@ const BlogList = (props) => {
           </Col>
         </Row>
         <div className="d-flex justify-content-between mt-5 mb-3 align-items-center">
-          <h3 className="text-light ">Latest Articles</h3>
+          <h3 className="text-light p-0 m-0">Latest Articles</h3>
           <Button variant="outline-secondary">See All</Button>
         </div>
         <Row>

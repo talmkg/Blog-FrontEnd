@@ -7,7 +7,7 @@ const MainBlogItem = (props) => {
   const { title, cover, author, id, readTime, content, createdAt } = props;
 
   return (
-    <Link to={`/blogs/${id}`} id="blog-link">
+    <Link to={`/blogs/${id}`} id="blog-link" style={{ body: "unset" }}>
       <Card className="blog-card bg-dark text-light" id="blog-link">
         <Card.Img
           variant="top"
@@ -38,7 +38,7 @@ const MainBlogItem = (props) => {
           </div>
           <div className="bg-dark">
             <p id="no-p-no-m" className="text-truncate text-muted">
-              {new Date(createdAt).toLocaleDateString()} • {readTime.value}
+              {new Date(createdAt).toLocaleDateString()} • {readTime.value}{" "}
               {readTime.unit}('s) Read
             </p>
           </div>
