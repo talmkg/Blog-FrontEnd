@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Container, Card } from "react-bootstrap";
 import BlogItem from "../blog-item/BlogItem";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -36,8 +36,8 @@ const BlogList = (props) => {
   } else {
     return (
       <>
-        <Row className="g-2">
-          <Col xs={12} md={6} lg={7}>
+        <Row className="g-1">
+          <Col xs={12} md={12} lg={7} className="text-light">
             {reverseArray?.map((blog, index) => {
               if (index == 0) {
                 return <MainBlogItem key={blog.id} {...blog} />;
@@ -46,17 +46,16 @@ const BlogList = (props) => {
           </Col>
           <Col
             xs={12}
-            md={6}
+            md={12}
             lg={5}
-            className="d-flex align-items-between flex-wrap"
+            className="text-left"
+            id="md-breakpoint-fix"
           >
-            <Row>
-              {reverseArray?.map((blog, index) => {
-                if (index > 0 && index < 5) {
-                  return <SideBlogItem key={blog.id} {...blog} />;
-                }
-              })}
-            </Row>
+            {reverseArray?.map((blog, index) => {
+              if (index > 0 && index < 5) {
+                return <SideBlogItem key={blog.id} {...blog} />;
+              }
+            })}
           </Col>
         </Row>
         <div className="d-flex justify-content-between mt-5 mb-3 align-items-center">
