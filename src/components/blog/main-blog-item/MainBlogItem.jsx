@@ -10,7 +10,7 @@ const MainBlogItem = (props) => {
     <Link to={`/blogs/${id}`} id="blog-link" style={{ body: "unset" }}>
       <Card className="h-100 bg-dark text-light">
         <Card.Img
-          src="https://images2.alphacoders.com/116/1164130.png"
+          src={cover}
           alt="image"
           className="img-fluid"
           style={{
