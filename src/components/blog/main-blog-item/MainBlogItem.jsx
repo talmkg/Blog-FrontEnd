@@ -8,11 +8,15 @@ const MainBlogItem = (props) => {
 
   return (
     <Link to={`/blogs/${id}`} id="blog-link" style={{ body: "unset" }}>
-      <Card className="blog-card bg-dark text-light" id="blog-link">
+      <Card className="h-100 bg-dark text-light">
         <Card.Img
-          variant="top"
-          src={cover}
-          style={{ aspectRatio: 16 / 9, objectFit: "cover" }}
+          src="https://images2.alphacoders.com/116/1164130.png"
+          alt="image"
+          className="img-fluid"
+          style={{
+            objectFit: "cover",
+            height: "100%",
+          }}
         />
         <Card.Body>
           <div className="d-flex justify-content-between mb-3">

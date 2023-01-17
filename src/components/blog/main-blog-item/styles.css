@@ -18,7 +18,11 @@
   opacity: 0.9;
   transition: all 0.2s;
 }
-
+#text-main-blog {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 120px;
+}
 @media only screen and (max-width: 600px) {
   #text-main-blog {
     overflow: hidden;
@@ -28,16 +32,8 @@
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  #text-main-blog {
-    max-height: 145px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 }
 @media only screen and (max-width: 768px) {
-  #blog-link {
-    margin-bottom: 10rem;
-  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

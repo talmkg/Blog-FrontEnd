@@ -8,40 +8,42 @@ const SideBlogItem = (props) => {
 
   return (
     <>
-      <Link
-        to={`/blogs/${id}`}
-        id="blog-link"
-        className="d-flex align-items-center"
-      >
-        <Col>
-          <div class="card bg-dark">
-            <div class="row g-0">
-              <div class="col-md-5">
-                <Card.Img
-                  src={cover}
-                  class="w-100 h-100 img-fluid rounded-start"
-                  alt="..."
-                  style={{ objectFit: "cover", aspectRatio: 3 / 2 }}
-                />
-              </div>
-              <div class="col-md-7">
-                <div class="card-body text-light">
-                  <div className="mb-2">
-                    <BlogAuthor {...author} {...readTime} />
-                  </div>
-                  <h5 class="card-title text-light text-truncate">{title}</h5>
-
-                  <small>
-                    <p class="text-muted card-text text-truncate">
-                      {new Date(createdAt).toLocaleDateString()} •{" "}
-                      {readTime.value} {readTime.unit}('s) Read
+      <Link to={`/blogs/${id}`} id="blog-link" className="text-light">
+        <Row className="g-0" id="main-row">
+          <Col xs={12}>
+            <Card className="bg-dark">
+              <Row className="g-0">
+                <Col xs={12} sm={12} md={12} lg={5}>
+                  <Card.Img
+                    src={cover}
+                    alt="image1"
+                    className="w-100 h-100"
+                    style={{ objectFit: "cover", aspectRatio: 3 / 2 }}
+                  />
+                </Col>
+                <Col xs={12} sm={12} md={12} lg={7}>
+                  <Card.Body>
+                    <div className="mb-2">
+                      <BlogAuthor {...author} {...readTime} />
+                    </div>
+                    <p className="text-truncate text-light">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quia veritatis, totam qui soluta eius aperiam ipsa, ut,
+                      magnam veniam iusto architecto laudantium tempora optio
+                      nam odio illo inventore suscipit et?
                     </p>
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Col>
+                    <small>
+                      <p class="text-muted card-text text-truncate">
+                        {new Date(createdAt).toLocaleDateString()} •{" "}
+                        {readTime.value} {readTime.unit}('s) Read
+                      </p>
+                    </small>
+                  </Card.Body>
+                </Col>
+              </Row>
+            </Card>
+          </Col>
+        </Row>
       </Link>
     </>
   );
