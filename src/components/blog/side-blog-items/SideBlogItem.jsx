@@ -9,7 +9,7 @@ const SideBlogItem = (props) => {
   return (
     <>
       <Link to={`/blogs/${id}`} id="blog-link" className="text-light">
-        <Row className="g-0">
+        <Row className="g-0" id="main-row">
           <Col xs={12}>
             <Card className="bg-dark">
               <Row className="g-0">
