@@ -14,7 +14,7 @@ const NavBar = (props) => {
       <Container>
         <Navbar.Brand
           as={Link}
-          to="/"
+          to="/home"
           className="d-flex text-light"
           id="navbar-logo"
         >
@@ -32,7 +32,7 @@ const NavBar = (props) => {
         <Navbar.Collapse id="basic-navbar-nav" className="hide-on-mobile">
           <Nav className="me-auto">
             <Link
-              to="/"
+              to="/home"
               className="nav-links text-center mx-2"
               id="only-md-screens"
             >

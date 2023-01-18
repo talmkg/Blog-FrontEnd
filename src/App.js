@@ -11,6 +11,8 @@ import Search from "./views/search/Search";
 import Profile from "./views/profile/Profile";
 import { Container } from "react-bootstrap";
 import About from "./views/about/about";
+import Login from "./views/login/Login";
+import SignUp from "./views/signUp/SignUp";
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <div id="main" className="container-xl p-0">
           <NavBar />
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/blogs/:id" element={<Blog />} />
             <Route path="/new" element={<NewBlogPost />} />
             <Route path="/about" element={<About />} />

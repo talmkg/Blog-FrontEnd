@@ -14,8 +14,8 @@ const BlogList = (props) => {
   // const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
-  const blogs = useSelector((state) => state.blogs.blogs);
-  const loading = useSelector((state) => state.blogs.isLoading);
+  const blogs = useSelector((state) => state.blogs);
+  const loading = useSelector((state) => state.isLoading);
 
   React.useEffect(() => {
     dispatch(getBlogs());

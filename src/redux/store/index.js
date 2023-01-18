@@ -1,12 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import blogsReducer from "../reducers/blogsReducer"
+import { configureStore } from "@reduxjs/toolkit";
+import mainReducer from "../reducers/blogsReducer";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import thunk from "redux-thunk";
 
-const bigReducer = {
-  blogs: blogsReducer,
-}
+const persistConfig = {
+  key: "root",
+  storage,
+};
 
-const store = configureStore({
-  reducer: bigReducer,
+const persistedReducer = persistReducer(persistConfig, mainReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [thunk],
 });
 
-export default store;
+export const persistor = persistStore(store);

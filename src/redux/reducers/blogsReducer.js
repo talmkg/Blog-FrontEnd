@@ -1,9 +1,10 @@
-import { FETCH_BLOGS, SET_ID } from "../actions";
+import { FETCH_BLOGS, SET_ID, SET_USER } from "../actions";
 
 const initialState = {
   blogs: [],
   isLoading: true,
   id: "",
+  user: [],
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -19,6 +20,14 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         id: action.payload,
+        isLoading: false,
+      };
+    }
+    case SET_USER: {
+      console.log(action.payload);
+      return {
+        ...state,
+        user: action.payload,
         isLoading: false,
       };
     }

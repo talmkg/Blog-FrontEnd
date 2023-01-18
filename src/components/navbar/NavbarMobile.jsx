@@ -17,7 +17,7 @@ const Navbarmobile = (props) => {
         id="navbar-post-mobile"
         className="w-100 d-flex justify-content-around"
       >
-        <Link to="/" className="text-dark" id="nav-link">
+        <Link to="/home" className="text-dark" id="nav-link">
           <AiOutlineHome size={30} />
         </Link>
         <Link to="/search" className="text-dark" id="nav-link">

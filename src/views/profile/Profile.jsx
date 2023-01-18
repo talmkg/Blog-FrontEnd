@@ -9,10 +9,12 @@ import { getBlogs } from "../../redux/actions";
 const Profile = (props) => {
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs.blogs);
+  const user = useSelector((state) => state.user);
 
   React.useEffect(() => {
     dispatch(getBlogs());
-  }, []);
+    console.log();
+  });
   return (
     <Container className="new-blog-container text-light pt-4">
       <Row className="d-flex justify-content-center mb-5">
@@ -38,8 +40,10 @@ const Profile = (props) => {
         id="content-under-images"
       >
         <div className="text-center">
-          <h3>@talmkg</h3>
-          <h6>Birds born in cage think flying is an illness.</h6>
+          <h3>{user.nickname}</h3>
+          <h6>
+            {user.name} {user.surname}
+          </h6>
           <h6>3 followers • 7 following</h6>
           <h6 style={{ fontSize: "14px" }} className="text-muted">
             640 views this month

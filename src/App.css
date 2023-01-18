@@ -19,8 +19,12 @@ body {
 
 #root,
 :root {
+  background-color: #939391;
   background-image: url("https://wallpaper.dog/large/10981226.jpg");
   object-fit: cover;
   background-size: cover;
   background-attachment: fixed;
+}
+#root {
+  min-height: 100vh;
 }

@@ -84,7 +84,7 @@ const NewBlogPost = (props) => {
           .then((s) => {
             if (s) {
               // setLoading(false);
-              window.location.replace("/");
+              window.location.replace("/home");
             }
           })
       );
