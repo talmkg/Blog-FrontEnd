@@ -16,6 +16,12 @@
     display: block !important;
   }
 }
+@media (min-width: 1200px) {
+  #main-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 #full-screen {
   position: absolute;
   top: 50%;

@@ -38,7 +38,7 @@ const Search = () => {
     );
   } else {
     return (
-      <Container className=" pe-4 px-4 w-75">
+      <Container id="main-container">
         <InputGroup className="pt-5" onSubmit={handleSubmit}>
           <Form.Control
             type="text"

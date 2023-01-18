@@ -102,7 +102,7 @@ const NewBlogPost = (props) => {
     );
   } else {
     return (
-      <Container className="new-blog-container text-light w-75">
+      <Container className="new-blog-container text-light" id="main-container">
         <Form className="mt-3">
           <Form.Group controlId="blog-form">
             <Form.Label>Title</Form.Label>
@@ -167,13 +167,15 @@ const NewBlogPost = (props) => {
               </Form.Group>
             </div>
           </div>
-          <div className="w-25 mt-2">
-            <Form.Label>Upload Your cover:</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={(e) => posterChangeHandler(e)}
-              accept=".jpg, .jpeg"
-            />
+          <div className="d-flex justify-content-center mt-2">
+            <div>
+              <Form.Label>Upload Your cover:</Form.Label>
+              <Form.Control
+                type="file"
+                onChange={(e) => posterChangeHandler(e)}
+                accept=".jpg, .jpeg"
+              />
+            </div>
           </div>
           <Form.Group className="d-flex mt-3 justify-content-end">
             <Button type="reset" size="lg" variant="outline-light">
