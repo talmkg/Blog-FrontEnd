@@ -38,13 +38,13 @@ const Search = () => {
     );
   } else {
     return (
-      <Container className="new-blog-container pe-4 px-4">
+      <Container className=" pe-4 px-4 w-75">
         <InputGroup className="pt-5" onSubmit={handleSubmit}>
           <Form.Control
             type="text"
             value={query}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             placeholder="Type a title of a Blog 🔎"
             aria-label="Search 🔎"
             aria-describedby="basic-addon2"
@@ -55,7 +55,9 @@ const Search = () => {
           {(() => {
             if (query === "") {
               return (
-                <h4 className="text-center m-5">Type something to search!</h4>
+                <h4 className="text-center m-5 text-light">
+                  Type something to search!
+                </h4>
               );
             } else {
               return (

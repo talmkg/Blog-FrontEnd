@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { IoConstructOutline } from "react-icons/io5";
 import "./style.css";
-const About = () => {
+const Saved = () => {
   return (
     <Container fluid="sm" id="container" className="text-light">
       <div id="full-screen" className="text-center ">
@@ -14,4 +14,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Saved;

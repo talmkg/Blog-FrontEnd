@@ -13,6 +13,7 @@ import { Container } from "react-bootstrap";
 import About from "./views/about/about";
 import Login from "./views/login/Login";
 import SignUp from "./views/signUp/SignUp";
+import Saved from "./views/saved/Saved";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/blogs/:id" element={<Blog />} />
             <Route path="/new" element={<NewBlogPost />} />
             <Route path="/about" element={<About />} />
+            <Route path="/saved" element={<Saved />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
