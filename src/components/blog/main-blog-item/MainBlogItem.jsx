@@ -15,6 +15,7 @@ const MainBlogItem = (props) => {
           className="img-fluid"
           style={{
             objectFit: "cover",
+            aspectRatio: 16 / 9,
             height: "100%",
           }}
         />
