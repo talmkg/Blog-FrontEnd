@@ -21,15 +21,15 @@ const Profile = (props) => {
         <Col xs={12} id="profile-pictures">
           <div className="position-relative w-100 d-flex justify-content-center">
             <img
-              src="https://images6.alphacoders.com/129/1297927.png"
+              src={user.background}
               className="w-100 rounded-4"
               id="background-image"
             />
 
             <img
-              src="https://media1.giphy.com/media/4ilFRqgbzbx4c/giphy.gif?cid=ecf05e471i2iokfwcwadmzr90y0sacj22k5bk9aopmbj16sp&rid=giphy.gif&ct=g"
+              src={user.pfp}
               className="rounded-circle position-absolute"
-              style={{ bottom: "-30%" }}
+              style={{ bottom: "-30%", objectFit: "cover" }}
               id="profile-picture"
             />
           </div>
@@ -44,9 +44,9 @@ const Profile = (props) => {
           <h6>
             {user.name} {user.surname}
           </h6>
-          <h6>3 followers • 7 following</h6>
+          <h6>0 followers • 0 following</h6>
           <h6 style={{ fontSize: "14px" }} className="text-muted">
-            640 views this month
+            1 view this month
           </h6>
         </div>
       </Container>

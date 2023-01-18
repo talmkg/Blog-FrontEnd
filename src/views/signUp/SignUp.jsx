@@ -56,10 +56,6 @@ const SignUp = (props) => {
       .then((response) => response.json())
       .then((s) => {
         console.log(s);
-        dispatch({
-          type: SET_USER,
-          payload: s,
-        });
         return s;
       })
       .then((savedPost) => savedPost.id)
@@ -72,13 +68,20 @@ const SignUp = (props) => {
           fetch(`https://main.up.railway.app/users/${savedPostId}/background`, {
             method: "PUT",
             body: formData2,
-          }).then((s) => {
-            if (s) {
-              setLoading(false);
-
-              window.location.replace("/home");
-            }
           })
+            .then((response) => response.json())
+            .then((s) => {
+              if (s) {
+                console.log(s);
+                dispatch({
+                  type: SET_USER,
+                  payload: s,
+                });
+
+                setLoading(false);
+                window.location.replace("/home");
+              }
+            })
         )
       );
   };
