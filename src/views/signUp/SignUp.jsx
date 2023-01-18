@@ -120,26 +120,34 @@ const SignUp = (props) => {
                 />
               </div>
             </Form.Group>
-            <Form.Label className="mt-1">Username</Form.Label>
-            <InputGroup className="mb-1 ">
-              <InputGroup.Text>@</InputGroup.Text>
-              <Form.Control
-                placeholder="exiting_user"
-                aria-label="exiting_user"
-                value={nickname}
-                onChange={(e) => onChangeHandler(e.target.value, setNickname)}
-              />
-            </InputGroup>
-            <Form.Group className="mb-3 mt-2" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => onChangeHandler(e.target.value, setPassword)}
-              />
-            </Form.Group>
-
+            <div className=" d-flex">
+              <div className="w-50 me-2">
+                <Form.Label>Username</Form.Label>
+                <InputGroup>
+                  <Form.Control
+                    placeholder="exiting_user"
+                    aria-label="exiting_user"
+                    value={nickname}
+                    onChange={(e) =>
+                      onChangeHandler(e.target.value, setNickname)
+                    }
+                  />
+                </InputGroup>
+              </div>
+              <div className="w-50">
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) =>
+                      onChangeHandler(e.target.value, setPassword)
+                    }
+                  />
+                </Form.Group>
+              </div>
+            </div>
             <div className="d-flex mb-3 mt-2">
               <div className="justify-content-start w-50 me-2">
                 <Form.Label>Upload Your Profile Picture:</Form.Label>

@@ -16,6 +16,8 @@ const NewBlogPost = (props) => {
   const [nickname, setNickname] = useState("");
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
+  const user = useSelector((state) => state.user);
+  const username = user.name + " " + user.surname;
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -100,7 +102,7 @@ const NewBlogPost = (props) => {
     );
   } else {
     return (
-      <Container className="new-blog-container text-light">
+      <Container className="new-blog-container text-light w-75">
         <Form className="mt-3">
           <Form.Group controlId="blog-form">
             <Form.Label>Title</Form.Label>
@@ -118,7 +120,7 @@ const NewBlogPost = (props) => {
                 <Form.Control
                   size="md"
                   placeholder="Anthony Stark"
-                  value={name}
+                  value={username}
                   onChange={(e) => onChangeHandler(e.target.value, setName)}
                 />
               </Form.Group>
@@ -129,7 +131,7 @@ const NewBlogPost = (props) => {
                 <Form.Control
                   size="md"
                   placeholder="@jasonbourne"
-                  value={nickname}
+                  value={user.nickname}
                   onChange={(e) => onChangeHandler(e.target.value, setNickname)}
                 />
               </Form.Group>
@@ -165,19 +167,13 @@ const NewBlogPost = (props) => {
               </Form.Group>
             </div>
           </div>
-          <div className="d-flex justify-content-start w-100 p-2">
-            <Row className="d-flex">
-              <Col xs={4}>
-                <Form.Label>Upload Your cover:</Form.Label>
-              </Col>
-              <Col xs={8}>
-                <Form.Control
-                  type="file"
-                  onChange={(e) => posterChangeHandler(e)}
-                  accept=".jpg, .jpeg"
-                />
-              </Col>
-            </Row>
+          <div className="w-25 mt-2">
+            <Form.Label>Upload Your cover:</Form.Label>
+            <Form.Control
+              type="file"
+              onChange={(e) => posterChangeHandler(e)}
+              accept=".jpg, .jpeg"
+            />
           </div>
           <Form.Group className="d-flex mt-3 justify-content-end">
             <Button type="reset" size="lg" variant="outline-light">
