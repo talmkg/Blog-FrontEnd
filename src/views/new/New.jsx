@@ -38,8 +38,8 @@ const NewBlogPost = (props) => {
     nickname: nickname,
     content: `${html}`,
     author: {
-      name: name,
-      avatar: "https://ui-avatars.com/api/?tim",
+      name: username,
+      avatar: user.pfp,
     },
     readTime: {
       value: value,

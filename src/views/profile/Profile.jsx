@@ -33,6 +33,7 @@ function MyVerticallyCenteredModal(props) {
       x.type = "password";
     }
   }
+
   return (
     <Modal
       {...props}
@@ -91,13 +92,11 @@ function MyVerticallyCenteredModal(props) {
 const Profile = (props) => {
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = React.useState(false);
-  const blogs = useSelector((state) => state.blogs.blogs);
+  const blogs = useSelector((state) => state.blogs);
   const user = useSelector((state) => state.user);
-
-  React.useEffect(() => {
-    dispatch(getBlogs());
-    console.log(user);
-  });
+  const full_name = user.name + " " + user.surname;
+  const my_blogs = blogs?.filter((blog) => blog.author.name === full_name);
+  React.useEffect(() => {}, []);
 
   if (user.length === 0) {
     return (
@@ -189,15 +188,11 @@ const Profile = (props) => {
 
         <Container>
           <Row>
-            {blogs
-              ?.filter(function (blog) {
-                return blog.author.name === user.name;
-              })
-              .map((blog) => (
-                <Col xs={12} s={6} md={6} lg={4} className="mb-2">
-                  <BlogItem key={blog.title} {...blog} />
-                </Col>
-              ))}
+            {my_blogs.map((blog) => (
+              <Col xs={12} s={6} md={6} lg={4} className="mb-2">
+                <BlogItem key={blog.title} {...blog} />
+              </Col>
+            ))}
           </Row>
         </Container>
       </Container>
