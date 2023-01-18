@@ -22,7 +22,7 @@ const Search = () => {
   const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
-  const blogs = useSelector((state) => state.blogs.blogs);
+  const blogs = useSelector((state) => state.blogs);
 
   React.useEffect(() => {
     dispatch(getBlogs()).then(setLoading(false));
@@ -62,7 +62,9 @@ const Search = () => {
                 <Row className="pt-4">
                   {blogs
                     ?.filter(function (blog) {
-                      return blog.title.includes(query);
+                      return blog.title
+                        .toLowerCase()
+                        .includes(query.toLowerCase());
                     })
                     .map((blog) => (
                       <Col xs={12} s={6} md={6} lg={4} className="mb-2">
