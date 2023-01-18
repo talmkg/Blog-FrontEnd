@@ -161,15 +161,16 @@ const Profile = (props) => {
             </h6>
           </div>
         </Container>
-        <Container className="w-25 d-flex justify-content-center">
+        <Container className="d-flex justify-content-center">
           <Button
             variant="dark"
-            className="m-1 w-50"
+            className="m-1 w-25"
+            id="setandedit"
             onClick={() => setModalShow(true)}
           >
             Settings
           </Button>
-          <Button variant="dark" className="m-1 w-50">
+          <Button variant="dark" className="m-1 w-25" id="setandedit">
             Edit
           </Button>
           <MyVerticallyCenteredModal

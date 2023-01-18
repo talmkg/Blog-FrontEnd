@@ -53,6 +53,11 @@
     margin-top: 3rem;
   }
 }
+@media (min-width: 1200px) {
+  #setandedit {
+    width: 15% !important;
+  }
+}
 @media (min-width: 1400px) {
   #profile-picture {
     width: 250px;
