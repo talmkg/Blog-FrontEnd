@@ -26,12 +26,10 @@ const SideBlogItem = (props) => {
                     <div className="mb-2">
                       <BlogAuthor {...author} {...readTime} />
                     </div>
-                    <p className="text-truncate text-light">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quia veritatis, totam qui soluta eius aperiam ipsa, ut,
-                      magnam veniam iusto architecto laudantium tempora optio
-                      nam odio illo inventore suscipit et?
-                    </p>
+                    <p
+                      className="text-truncate text-light"
+                      dangerouslySetInnerHTML={{ __html: title || content }}
+                    ></p>
                     <small>
                       <p class="text-muted card-text text-truncate">
                         {new Date(createdAt).toLocaleDateString()} •{" "}
