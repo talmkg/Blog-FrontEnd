@@ -14,10 +14,3 @@ Resources:
 [front-end](https://github.com/talmkg/Blog-FrontEnd)<br/>
 [back-end](https://github.com/talmkg/MainBackEnd-Express.js) 👨‍💻
 
-
-<p align="center">
-Alpha-preview:
-</p>
-<div align="center">
-<img src="https://i.imgur.com/kFIgDNj.png"/>
-</div>
